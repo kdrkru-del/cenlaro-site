@@ -155,9 +155,6 @@ export default async function GreenProductDetailPage({ params }: GreenProductPag
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-7 bg-white border border-[#3A2418]/10 p-6 sm:p-8 shadow-sm">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#44523B] font-semibold block mb-2">
-              Export Analysis
-            </span>
             <h3 className="font-serif text-2xl text-[#20150F] font-normal mb-6">
               Green Coffee Specifications
             </h3>

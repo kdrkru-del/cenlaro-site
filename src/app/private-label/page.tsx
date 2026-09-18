@@ -76,9 +76,6 @@ export default function PrivateLabelPage() {
       {/* Hero Section */}
       <section className="bg-[#20150F] text-[#F4EFE7] pt-24 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-b border-[#3A2418]">
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <span className="editorial-badge text-[#C7A05A] mb-4 inline-block">
-            Full-Cycle OEM &amp; Contract Manufacturing
-          </span>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-none mb-6">
             YOUR BRAND.<br />OUR COFFEE.
           </h1>
@@ -98,9 +95,6 @@ export default function PrivateLabelPage() {
       {/* OEM Process Steps (01 to 08) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block mb-2">
-            The CENLARO Process
-          </span>
           <h2 className="font-serif text-3xl sm:text-4xl text-[#20150F] font-normal">
             8 Stages from Bean to Shelf
           </h2>

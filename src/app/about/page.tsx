@@ -51,9 +51,6 @@ export default function AboutPage() {
       {/* Brand Hero */}
       <section className="bg-[#20150F] text-[#F4EFE7] pt-24 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-b border-[#3A2418]">
         <div className="max-w-7xl mx-auto relative z-10 text-center max-w-3xl">
-          <span className="editorial-badge text-[#C7A05A] mb-4 inline-block">
-            Our Positioning
-          </span>
           <h1 className="font-serif text-3xl sm:text-5xl font-light text-white tracking-tight mb-6">
             FROM VIETNAM<br />TO THE WORLD
           </h1>
@@ -70,9 +67,6 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-6">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block">
-              Direct Sourcing
-            </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#20150F] font-normal leading-tight">
               Selected Terroirs of Vietnam
             </h2>

@@ -35,9 +35,6 @@ export default function WholesaleB2BPage() {
       {/* Hero Section */}
       <section className="bg-[#20150F] text-[#F4EFE7] pt-24 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-b border-[#3A2418]">
         <div className="max-w-7xl mx-auto relative z-10 text-center">
-          <span className="editorial-badge text-[#C7A05A] mb-4 inline-block">
-            B2B &amp; International Trade Desk
-          </span>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-none mb-6">
             COFFEE FOR YOUR BUSINESS
           </h1>
@@ -56,9 +53,6 @@ export default function WholesaleB2BPage() {
       {/* Core B2B Supply Pillars */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block mb-2">
-            Supply Capabilities
-          </span>
           <h2 className="font-serif text-3xl sm:text-4xl text-[#20150F] font-normal">
             Commercial Supply Architecture
           </h2>
@@ -113,9 +107,6 @@ export default function WholesaleB2BPage() {
       <section className="bg-white border-y border-[#3A2418]/10 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block mb-2">
-              Order Structures
-            </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#20150F] font-normal">
               Commercial Order Formats
             </h2>

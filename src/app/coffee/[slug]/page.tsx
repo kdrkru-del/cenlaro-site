@@ -204,9 +204,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             {/* Taste Profile Visualization */}
             <div className="lg:col-span-5 bg-white border border-[#3A2418]/10 p-6 sm:p-8 shadow-sm">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block mb-2">
-                Sensory Architecture
-              </span>
               <h3 className="font-serif text-2xl text-[#20150F] font-normal mb-6">
                 Taste &amp; Cup Profile
               </h3>
@@ -245,9 +242,6 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
             {/* Technical Specifications Table */}
             <div className="lg:col-span-7 bg-white border border-[#3A2418]/10 p-6 sm:p-8 shadow-sm">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block mb-2">
-                Commodity &amp; Roast Specs
-              </span>
               <h3 className="font-serif text-2xl text-[#20150F] font-normal mb-6">
                 Technical Specifications
               </h3>

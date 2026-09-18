@@ -83,14 +83,8 @@ export default function HomePage() {
           <div className="max-w-5xl mx-auto w-full text-center relative z-10 py-12">
             
             {/* Brand Emblem & Name organically integrated */}
-            <div className="mb-6 flex justify-center drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
+            <div className="mb-8 flex justify-center drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
               <CenlaroLogo theme="dark" variant="stacked" />
-            </div>
-
-            {/* Editorial pill */}
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-[#20150F]/60 backdrop-blur-md border border-[#C7A05A]/40 text-[#C7A05A] text-[10px] sm:text-xs uppercase tracking-[0.32em] font-medium mb-6 shadow-xl">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C7A05A] animate-pulse" />
-              Selected Origins • Highland Volcanic Terroirs
             </div>
 
             {/* Majestic Headline directly over the photograph */}
@@ -151,9 +145,6 @@ export default function HomePage() {
               href="/green-coffee"
               className="group bg-white border border-[#3A2418]/10 p-8 shadow-lg hover:border-[#C7A05A] transition-all"
             >
-              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#44523B] block mb-2">
-                Commodity Raw Supply
-              </span>
               <h3 className="font-serif text-2xl text-[#20150F] mb-3 group-hover:text-[#98733C] transition-colors">
                 Green Coffee
               </h3>
@@ -169,9 +160,6 @@ export default function HomePage() {
               href="/coffee"
               className="group bg-white border border-[#3A2418]/10 p-8 shadow-lg hover:border-[#C7A05A] transition-all"
             >
-              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#C7A05A] block mb-2">
-                Precision Roasts
-              </span>
               <h3 className="font-serif text-2xl text-[#20150F] mb-3 group-hover:text-[#98733C] transition-colors">
                 Signature Blends
               </h3>
@@ -187,9 +175,6 @@ export default function HomePage() {
               href="/private-label"
               className="group bg-white border border-[#3A2418]/10 p-8 shadow-lg hover:border-[#C7A05A] transition-all"
             >
-              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-[#98733C] block mb-2">
-                Custom Manufacturing
-              </span>
               <h3 className="font-serif text-2xl text-[#20150F] mb-3 group-hover:text-[#98733C] transition-colors">
                 Private Label &amp; OEM
               </h3>
@@ -207,9 +192,6 @@ export default function HomePage() {
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 pb-4 border-b border-[#3A2418]/10 gap-4">
             <div>
-              <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block mb-1">
-                Selected Portfolio
-              </span>
               <h2 className="font-serif text-3xl sm:text-4xl text-[#20150F] font-normal">
                 Featured Coffee Lots
               </h2>
@@ -234,9 +216,6 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <span className="editorial-badge text-[#C7A05A] mb-4 inline-block">
-                  Wholesale &amp; International Trade
-                </span>
                 <h2 className="font-serif text-3xl sm:text-5xl font-light text-white mb-6 leading-tight">
                   Reliable Sourcing for Global Roasters
                 </h2>

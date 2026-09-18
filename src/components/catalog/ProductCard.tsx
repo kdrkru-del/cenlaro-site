@@ -43,10 +43,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
       {/* Card Content */}
       <div className="flex-1 flex flex-col p-5 sm:p-6 bg-[#FCFAF7] group-hover:bg-white transition-colors duration-300">
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-[#C7A05A]">
-            CENLARO
-          </span>
+        <div className="flex items-center justify-end gap-2 mb-2">
           <span className="text-[11px] font-medium text-stone-500">
             {product.origin}
           </span>

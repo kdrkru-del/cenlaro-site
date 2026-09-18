@@ -79,9 +79,6 @@ export default function CoffeeCatalogPage() {
           
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="flex flex-col items-start max-w-3xl">
-              <span className="editorial-badge text-[#C7A05A] mb-4">
-                Export Grade Collection
-              </span>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight mb-4">
                 Coffee Catalogue
               </h1>

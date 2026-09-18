@@ -40,10 +40,6 @@ export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
         />
       </div>
 
-      <span className="text-[10px] tracking-[0.25em] uppercase font-medium text-[#C7A05A]/80 mb-1">
-        {category}
-      </span>
-
       <h4 className="font-serif text-white text-base sm:text-lg font-normal tracking-wide max-w-[200px] leading-tight">
         {name}
       </h4>

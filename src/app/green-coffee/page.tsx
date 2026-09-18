@@ -32,9 +32,6 @@ export default function GreenCoffeeCategoryPage() {
       <section className="bg-[#1C2419] text-[#F4EFE7] pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-b border-[#44523B]/30">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl">
-            <span className="editorial-badge text-[#C7A05A] border-[#C7A05A]/40 mb-4 inline-block">
-              Origin Raw Commodities
-            </span>
             <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-white tracking-tight leading-tight mb-4">
               Vietnam Green Coffee
             </h1>

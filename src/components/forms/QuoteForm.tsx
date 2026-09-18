@@ -94,9 +94,6 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
 
       <div className="relative z-10 max-w-xl mx-auto">
         <div className="text-center mb-8">
-          <span className="text-[10px] sm:text-[11px] tracking-[0.3em] uppercase text-[#C7A05A] font-medium block mb-2">
-            Прямой контакт • Отдел экспорта
-          </span>
           <h2 className="font-serif text-2xl sm:text-4xl font-light text-white mb-3">
             {title}
           </h2>
