@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface CoffeePlaceholderProps {
   name: string;
@@ -27,9 +28,15 @@ export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
       <div className="absolute inset-3 border border-[#C7A05A]/20 pointer-events-none" />
       <div className="absolute inset-5 border border-[#C7A05A]/10 pointer-events-none" />
 
-      {/* Subtle brand crest monogram */}
-      <div className="w-12 h-12 rounded-full border border-[#C7A05A]/40 flex items-center justify-center mb-3">
-        <span className="font-serif text-[#C7A05A] text-lg tracking-widest font-light">C</span>
+      {/* Authentic CENLARO Gold Emblem */}
+      <div className="relative w-14 h-8 mb-2 flex-shrink-0">
+        <Image
+          src="/images/cenlaro-emblem.png"
+          alt="CENLARO Gold Emblem"
+          fill
+          sizes="56px"
+          className="object-contain drop-shadow"
+        />
       </div>
 
       <span className="text-[10px] tracking-[0.25em] uppercase font-medium text-[#C7A05A]/80 mb-1">

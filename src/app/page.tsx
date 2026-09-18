@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CenlaroLogo } from '@/components/ui/CenlaroLogo';
 import { PRODUCTS, getFeaturedProducts } from '@/data/products';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { QuoteForm } from '@/components/forms/QuoteForm';
@@ -63,15 +64,8 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(#C7A05A_1px,transparent_1px)] [background-size:32px_32px] opacity-15 pointer-events-none" />
 
           <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
-            <div className="relative w-40 sm:w-48 h-20 sm:h-24 mb-6 overflow-hidden">
-              <Image
-                src="/images/cenlaro-logo.jpg"
-                alt="CENLARO Selected Origins"
-                fill
-                sizes="(max-width: 640px) 160px, 192px"
-                className="object-contain"
-                priority
-              />
+            <div className="mb-6">
+              <CenlaroLogo theme="dark" variant="stacked" />
             </div>
 
             <span className="editorial-badge text-[#C7A05A] mb-4 inline-block">

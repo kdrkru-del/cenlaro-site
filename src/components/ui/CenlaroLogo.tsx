@@ -1,64 +1,97 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 interface CenlaroLogoProps {
   className?: string;
   theme?: 'dark' | 'light';
-  variant?: 'full' | 'mark' | 'horizontal';
+  variant?: 'horizontal' | 'emblem-only' | 'stacked';
   showTagline?: boolean;
 }
 
 export const CenlaroLogo: React.FC<CenlaroLogoProps> = ({
   className = '',
   theme = 'dark',
-  variant = 'full',
+  variant = 'horizontal',
   showTagline = true,
 }) => {
   const isDarkBg = theme === 'dark';
 
-  if (variant === 'full') {
+  if (variant === 'stacked') {
     return (
-      <div className={`flex flex-col items-center select-none ${className}`}>
-        {/* Authentic Emblem */}
-        <div className="relative w-28 sm:w-32 h-14 sm:h-16 mb-1 overflow-hidden">
+      <div className={`flex flex-col items-center text-center select-none ${className}`}>
+        {/* Isolated Gold Sun & Sea/Coffee Waves Emblem */}
+        <div className="relative w-24 sm:w-28 h-12 sm:h-14 mb-2">
           <Image
-            src="/images/cenlaro-logo.jpg"
-            alt="CENLARO Emblem"
+            src="/images/cenlaro-emblem.png"
+            alt="CENLARO Gold Emblem"
             fill
-            sizes="(max-width: 640px) 112px, 128px"
-            className="object-contain object-top"
+            sizes="112px"
+            className="object-contain"
             priority
           />
         </div>
-      </div>
-    );
-  }
 
-  // Horizontal Header/Footer Variant: retains exact original typography and emblem
-  return (
-    <div className={`flex items-center gap-3.5 select-none ${className}`}>
-      <div className="relative w-11 h-11 rounded-full overflow-hidden border border-[#C7A05A]/40 bg-[#FBF8F2] flex-shrink-0 shadow-inner">
-        <Image
-          src="/images/cenlaro-logo.jpg"
-          alt="CENLARO Logo"
-          fill
-          sizes="44px"
-          className="object-cover scale-[1.7] translate-y-[2px]"
-          priority
-        />
-      </div>
-
-      <div className="flex flex-col justify-center">
+        {/* Wordmark */}
         <span
-          className={`font-serif tracking-[0.24em] text-lg sm:text-xl font-medium leading-tight transition-colors ${
+          className={`font-serif tracking-[0.28em] text-2xl sm:text-3xl font-medium uppercase leading-tight ${
             isDarkBg ? 'text-[#F4EFE7]' : 'text-[#20150F]'
           }`}
         >
           CENLARO
         </span>
+
         {showTagline && (
-          <span className="text-[8px] tracking-[0.32em] text-[#C7A05A] uppercase font-medium mt-0.5">
+          <div className="flex items-center gap-3 mt-1.5 w-full justify-center">
+            <span className="w-6 h-[1px] bg-[#C7A05A]/50" />
+            <span className="text-[9px] tracking-[0.38em] text-[#C7A05A] uppercase font-medium">
+              SELECTED ORIGINS
+            </span>
+            <span className="w-6 h-[1px] bg-[#C7A05A]/50" />
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  if (variant === 'emblem-only') {
+    return (
+      <div className={`relative ${className}`}>
+        <Image
+          src="/images/cenlaro-emblem.png"
+          alt="CENLARO Gold Emblem"
+          fill
+          className="object-contain"
+        />
+      </div>
+    );
+  }
+
+  // Horizontal variant for Header and Footer
+  return (
+    <div className={`flex items-center gap-4 select-none ${className}`}>
+      {/* 1. Logo Emblem: Sun arc & flowing coffee landscape */}
+      <div className="relative w-12 sm:w-14 h-7 sm:h-8 flex-shrink-0">
+        <Image
+          src="/images/cenlaro-emblem.png"
+          alt="CENLARO Emblem"
+          fill
+          sizes="56px"
+          className="object-contain"
+          priority
+        />
+      </div>
+
+      {/* 2. Brand Name & Selected Origins typography */}
+      <div className="flex flex-col justify-center">
+        <span
+          className={`font-serif tracking-[0.26em] text-lg sm:text-xl font-medium uppercase leading-none transition-colors ${
+            isDarkBg ? 'text-[#F4EFE7] group-hover:text-[#C7A05A]' : 'text-[#20150F] group-hover:text-[#98733C]'
+          }`}
+        >
+          CENLARO
+        </span>
+        {showTagline && (
+          <span className="text-[8px] tracking-[0.34em] text-[#C7A05A] uppercase font-semibold mt-1">
             SELECTED ORIGINS
           </span>
         )}
