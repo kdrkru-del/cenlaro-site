@@ -92,24 +92,21 @@ export default function PrivateLabelPage() {
         </div>
       </section>
 
-      {/* OEM Process Steps (01 to 08) */}
+      {/* OEM Process Steps */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-serif text-3xl sm:text-4xl text-[#20150F] font-normal">
-            8 Stages from Bean to Shelf
+            Stages from Bean to Shelf
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step) => (
             <div
-              key={step.num}
+              key={step.title}
               className="bg-white border border-[#3A2418]/10 p-6 sm:p-7 flex flex-col justify-between hover:border-[#C7A05A]/40 transition-colors shadow-sm"
             >
               <div>
-                <span className="font-serif text-3xl text-[#C7A05A] font-light block mb-3">
-                  {step.num}
-                </span>
                 <h3 className="font-serif text-lg text-[#20150F] font-normal mb-2">
                   {step.title}
                 </h3>

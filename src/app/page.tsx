@@ -200,7 +200,7 @@ export default function HomePage() {
               href="/coffee"
               className="text-xs uppercase tracking-widest font-semibold text-[#98733C] hover:text-[#20150F] transition-colors"
             >
-              View Complete Catalogue (16 Products) →
+              View Complete Catalogue →
             </Link>
           </div>
 

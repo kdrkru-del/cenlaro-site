@@ -135,12 +135,12 @@ export default function AboutPage() {
 
           {/* Desktop Horizontal Timeline */}
           <div className="hidden lg:grid grid-cols-6 gap-4 relative">
-            <div className="absolute top-7 left-8 right-8 h-[2px] bg-[#C7A05A]/30 -z-0" />
+            <div className="absolute top-3 left-8 right-8 h-[2px] bg-[#C7A05A]/30 -z-0" />
 
             {timeline.map((item) => (
-              <div key={item.step} className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-14 h-14 rounded-full bg-[#20150F] border-2 border-[#C7A05A] flex items-center justify-center text-white font-serif text-sm font-semibold mb-4 shadow">
-                  {item.step}
+              <div key={item.title} className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-6 h-6 rounded-full bg-[#20150F] border-2 border-[#C7A05A] flex items-center justify-center mb-4 shadow">
+                  <span className="w-2 h-2 rounded-full bg-[#C7A05A]" />
                 </div>
                 <h4 className="font-serif text-base text-[#20150F] font-medium mb-2">{item.title}</h4>
                 <p className="text-[11px] text-stone-600 font-light leading-relaxed">{item.desc}</p>
@@ -151,10 +151,8 @@ export default function AboutPage() {
           {/* Mobile Vertical Timeline */}
           <div className="lg:hidden space-y-6 relative border-l-2 border-[#C7A05A]/40 ml-4 pl-6">
             {timeline.map((item) => (
-              <div key={item.step} className="relative">
-                <div className="absolute -left-[35px] top-0 w-8 h-8 rounded-full bg-[#20150F] border border-[#C7A05A] flex items-center justify-center text-white font-serif text-xs">
-                  {item.step}
-                </div>
+              <div key={item.title} className="relative">
+                <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-[#20150F] border-2 border-[#C7A05A]" />
                 <h4 className="font-serif text-lg text-[#20150F] font-medium mb-1">{item.title}</h4>
                 <p className="text-xs text-stone-600 font-light leading-relaxed">{item.desc}</p>
               </div>
