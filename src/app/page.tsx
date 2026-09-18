@@ -59,95 +59,77 @@ export default function HomePage() {
       />
 
       <div className="bg-[#FAF7F2] min-h-screen">
-        {/* Stage 1: Premium Editorial Hero with Crisp Coffee Showcase */}
-        <section className="relative bg-[#20150F] text-[#F4EFE7] pt-16 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[#3A2418]">
-          <div className="absolute inset-0 bg-[radial-gradient(#C7A05A_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none" />
+        {/* Stage 1: Full-Screen Cinematic Coffee Hero (Подложка на весь экран) */}
+        <section className="relative min-h-[88vh] flex items-center justify-center text-[#F4EFE7] px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[#3A2418]">
+          
+          {/* 1. Full-screen Coffee Photography Underlay */}
+          <div className="absolute inset-0 z-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '')}/images/hero-coffee-bg.jpg`}
+              alt="CENLARO Selected Origins Coffee Beans and Highland Mountain Terroirs"
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Elegant luxury gradient scrims for contrast without muddying the photo */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#20150F] via-[#20150F]/45 to-[#20150F]/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#20150F]/85 via-[#20150F]/40 to-transparent" />
+          </div>
 
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              
-              {/* Left Column: Brand & Editorial Typography */}
-              <div className="lg:col-span-6 flex flex-col items-start text-left">
-                <div className="mb-8">
-                  <CenlaroLogo theme="dark" variant="horizontal" />
-                </div>
+          {/* 2. Hero Content */}
+          <div className="max-w-7xl mx-auto w-full relative z-10 py-24 sm:py-32">
+            <div className="max-w-2xl bg-[#20150F]/80 backdrop-blur-md p-8 sm:p-12 border border-[#C7A05A]/40 shadow-2xl relative">
+              {/* Luxury gold corner accents */}
+              <div className="absolute -top-1.5 -left-1.5 w-4 h-4 border-t-2 border-l-2 border-[#C7A05A]" />
+              <div className="absolute -top-1.5 -right-1.5 w-4 h-4 border-t-2 border-r-2 border-[#C7A05A]" />
+              <div className="absolute -bottom-1.5 -left-1.5 w-4 h-4 border-b-2 border-l-2 border-[#C7A05A]" />
+              <div className="absolute -bottom-1.5 -right-1.5 w-4 h-4 border-b-2 border-r-2 border-[#C7A05A]" />
 
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#C7A05A]/10 border border-[#C7A05A]/30 text-[#C7A05A] text-[10px] uppercase tracking-[0.25em] font-semibold mb-6">
-                  Selected Origins • Vietnam Direct Export
-                </div>
-
-                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[1.1] mb-6">
-                  COFFEE WITH <span className="italic text-[#C7A05A] font-normal">CHARACTER</span>
-                </h1>
-
-                <p className="text-sm sm:text-base text-stone-300 font-light leading-relaxed mb-8 max-w-xl">
-                  CENLARO bridges high-altitude volcanic terroirs of Cau Dat and Buon Ma Thuot with international roasters and retail brands. Export-grade Robusta, washed Arabica, and calibrated espresso blends.
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-                  <Link
-                    href="/coffee"
-                    className="w-full sm:w-auto text-center px-8 py-4 bg-[#C7A05A] hover:bg-[#98733C] text-[#20150F] text-xs uppercase tracking-[0.25em] font-semibold transition-all shadow-xl hover:shadow-2xl"
-                  >
-                    Explore Catalogue
-                  </Link>
-                  <Link
-                    href="#quote-section"
-                    className="w-full sm:w-auto text-center px-8 py-4 border border-[#C7A05A]/60 hover:border-[#C7A05A] text-[#F4EFE7] text-xs uppercase tracking-[0.25em] font-medium transition-all hover:bg-white/5"
-                  >
-                    Request Current Price
-                  </Link>
-                </div>
-
-                {/* Key indicators */}
-                <div className="mt-10 pt-8 border-t border-[#3A2418] grid grid-cols-3 gap-6 w-full text-left">
-                  <div>
-                    <span className="block font-serif text-xl sm:text-2xl text-[#C7A05A]">1,500m+</span>
-                    <span className="text-[10px] uppercase tracking-wider text-stone-400">Cau Dat Elevation</span>
-                  </div>
-                  <div>
-                    <span className="block font-serif text-xl sm:text-2xl text-[#C7A05A]">S16 / S18</span>
-                    <span className="text-[10px] uppercase tracking-wider text-stone-400">Screen Calibration</span>
-                  </div>
-                  <div>
-                    <span className="block font-serif text-xl sm:text-2xl text-[#C7A05A]">B2B Direct</span>
-                    <span className="text-[10px] uppercase tracking-wider text-stone-400">FCL &amp; Pallets</span>
-                  </div>
-                </div>
+              <div className="mb-6">
+                <CenlaroLogo theme="dark" variant="horizontal" />
               </div>
 
-              {/* Right Column: Crisp Showcase Photograph */}
-              <div className="lg:col-span-6 relative">
-                {/* Decorative luxury hairline frame */}
-                <div className="relative p-2 sm:p-3 bg-gradient-to-br from-[#3A2418] via-[#20150F] to-[#180F0B] border border-[#C7A05A]/40 shadow-2xl">
-                  <div className="relative aspect-[4/3] sm:aspect-[16/11] overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={`${process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '')}/images/hero-coffee.jpg`}
-                      alt="CENLARO Selected Origins Coffee Beans, Green Coffee, and Ripe Cherries"
-                      className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                    {/* Subtle warm glow on the image bottom */}
-                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#20150F] via-transparent to-transparent opacity-80" />
-                    
-                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] uppercase tracking-widest text-[#F4EFE7]">
-                      <span className="bg-[#20150F]/85 backdrop-blur-sm px-3 py-1 border border-[#C7A05A]/30">
-                        Volcanic Highlands • Cau Dat &amp; Dak Lak
-                      </span>
-                      <span className="hidden sm:inline-block bg-[#C7A05A] text-[#20150F] font-semibold px-2.5 py-1">
-                        Selected Lot 2026
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Corner luxury ornaments */}
-                  <div className="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-[#C7A05A]" />
-                  <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-[#C7A05A]" />
-                  <div className="absolute -bottom-1 -left-1 w-3 h-3 border-b-2 border-l-2 border-[#C7A05A]" />
-                  <div className="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-[#C7A05A]" />
-                </div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#C7A05A]/15 border border-[#C7A05A]/40 text-[#C7A05A] text-[10px] uppercase tracking-[0.28em] font-semibold mb-6">
+                Selected Origins • Direct Sourcing Vietnam
               </div>
 
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[1.1] mb-6">
+                COFFEE WITH <span className="italic text-[#C7A05A] font-normal">CHARACTER</span>
+              </h1>
+
+              <p className="text-sm sm:text-base text-stone-200 font-light leading-relaxed mb-8">
+                CENLARO bridges high-altitude volcanic terroirs of Cau Dat and Buon Ma Thuot with international roasters and retail brands. Export-grade Robusta, Cau Dat Arabica, and signature espresso blends.
+              </p>
+
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <Link
+                  href="/coffee"
+                  className="w-full sm:w-auto text-center px-8 py-4 bg-[#C7A05A] hover:bg-[#98733C] text-[#20150F] text-xs uppercase tracking-[0.25em] font-semibold transition-all shadow-xl hover:shadow-2xl"
+                >
+                  Explore Catalogue
+                </Link>
+                <Link
+                  href="#quote-section"
+                  className="w-full sm:w-auto text-center px-8 py-4 border border-[#C7A05A]/70 hover:border-[#C7A05A] text-[#F4EFE7] text-xs uppercase tracking-[0.25em] font-medium transition-all hover:bg-white/10"
+                >
+                  Request Current Price
+                </Link>
+              </div>
+
+              {/* Badges */}
+              <div className="mt-8 pt-6 border-t border-[#3A2418] flex items-center gap-6 text-[10px] uppercase tracking-wider text-stone-400">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C7A05A]" />
+                  Cau Dat 1,500m+
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C7A05A]" />
+                  Screen 16 &amp; 18
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#C7A05A]" />
+                  B2B Direct FCL
+                </span>
+              </div>
             </div>
           </div>
         </section>
