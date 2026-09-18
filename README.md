@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CENLARO
 
-## Getting Started
+Premium Coffee Catalogue & International Export Portal.
 
-First, run the development server:
+## Tech stack:
+— Next.js 15 (App Router)
+— TypeScript
+— Tailwind CSS
+— Framer Motion / Lucide Icons
+
+## Key Architecture & Features
+- **Design System:** Editorial Luxury (Dark Espresso `#20150F`, Coffee Brown `#3A2418`, Warm Brown `#65402B`, Cream `#F4EFE7`, Warm Ivory `#FBF8F2`, Gold `#C7A05A`, Dark Gold `#98733C`, Green `#44523B`).
+- **Product Portfolio:**
+  - Green Coffee: Vietnam Green Robusta (Screen 16, Screen 18), Commercial & Premium Cau Dat Arabica.
+  - Roasted Whole Bean: 100% Arabica, 100% Robusta.
+  - Signature Blends: Complete series (90/10, 80/20, 70/30, 60/40, 50/50, 30/70, 20/80).
+  - Ground Coffee: Fine, Medium & Coarse calibrated for Espresso, Moka Pot, Phin, Filter, French Press.
+- **B2B Interaction:** Strictly quotation and export focused (`REQUEST A QUOTE`, `REQUEST CURRENT PRICE`, `GET PRICE`). No consumer eCommerce cart.
+- **SEO & Performance:** Server Components, dynamic `sitemap.xml`, `robots.txt`, Schema.org (Organization, ItemList, Product), OpenGraph, Twitter Cards.
+- **Commercial API:** `/api/quote` with modular adapter architecture for CRM, Telegram, and SMTP notifications.
+
+## Installation
+
+```bash
+npm install
+```
+
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to explore the catalogue.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+## Production Start
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run start
+```
