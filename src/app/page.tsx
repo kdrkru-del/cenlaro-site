@@ -59,9 +59,22 @@ export default function HomePage() {
       />
 
       <div className="bg-[#FAF7F2] min-h-screen">
-        {/* Stage 1: Hero Section */}
-        <section className="relative bg-[#20150F] text-[#F4EFE7] pt-28 pb-28 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[#3A2418]">
-          <div className="absolute inset-0 bg-[radial-gradient(#C7A05A_1px,transparent_1px)] [background-size:32px_32px] opacity-15 pointer-events-none" />
+        {/* Stage 1: Hero Section with Atmospheric Photography */}
+        <section className="relative bg-[#20150F] text-[#F4EFE7] pt-28 pb-36 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[#3A2418]">
+          {/* Background Photography with Luxury Vignette Overlays */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/hero-coffee.jpg"
+              alt="CENLARO Selected Origins Coffee Beans and Raw Green Coffee"
+              fill
+              priority
+              className="object-cover object-center opacity-35 scale-105 transition-transform duration-1000"
+            />
+            {/* Multi-layered editorial gradients for readability & luxury depth */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#20150F]/90 via-[#20150F]/75 to-[#20150F]" />
+            <div className="absolute inset-0 bg-radial from-transparent via-[#20150F]/60 to-[#20150F]" />
+            <div className="absolute inset-0 bg-[radial-gradient(#C7A05A_1px,transparent_1px)] [background-size:32px_32px] opacity-15 pointer-events-none" />
+          </div>
 
           <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
             <div className="mb-6">
@@ -76,20 +89,20 @@ export default function HomePage() {
               COFFEE WITH CHARACTER
             </h1>
 
-            <p className="text-sm sm:text-lg text-stone-300 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-sm sm:text-lg text-stone-200 font-light max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-sm">
               CENLARO bridges high-altitude volcanic terroirs with international roasters and retail brands. Export-grade Robusta, Cau Dat Arabica, and signature espresso blends.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <Link
                 href="/coffee"
-                className="w-full sm:w-auto px-8 py-4 bg-[#C7A05A] hover:bg-[#98733C] text-[#20150F] text-xs uppercase tracking-[0.25em] font-semibold transition-all shadow-md"
+                className="w-full sm:w-auto px-8 py-4 bg-[#C7A05A] hover:bg-[#98733C] text-[#20150F] text-xs uppercase tracking-[0.25em] font-semibold transition-all shadow-xl hover:shadow-2xl"
               >
                 Explore Catalogue
               </Link>
               <Link
                 href="#quote-section"
-                className="w-full sm:w-auto px-8 py-4 border border-[#C7A05A]/50 hover:border-[#C7A05A] text-[#F4EFE7] text-xs uppercase tracking-[0.25em] font-medium transition-all"
+                className="w-full sm:w-auto px-8 py-4 border border-[#C7A05A]/70 hover:border-[#C7A05A] bg-[#20150F]/40 backdrop-blur-sm text-[#F4EFE7] text-xs uppercase tracking-[0.25em] font-medium transition-all"
               >
                 Request Current Price
               </Link>
