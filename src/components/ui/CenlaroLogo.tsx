@@ -8,6 +8,8 @@ interface CenlaroLogoProps {
   showTagline?: boolean;
 }
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '');
+
 export const CenlaroLogo: React.FC<CenlaroLogoProps> = ({
   className = '',
   theme = 'dark',
@@ -15,19 +17,18 @@ export const CenlaroLogo: React.FC<CenlaroLogoProps> = ({
   showTagline = true,
 }) => {
   const isDarkBg = theme === 'dark';
+  const emblemSrc = `${basePath}/images/cenlaro-emblem.png`;
 
   if (variant === 'stacked') {
     return (
       <div className={`flex flex-col items-center text-center select-none ${className}`}>
         {/* Isolated Gold Sun & Sea/Coffee Waves Emblem */}
         <div className="relative w-24 sm:w-28 h-12 sm:h-14 mb-2">
-          <Image
-            src="/images/cenlaro-emblem.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={emblemSrc}
             alt="CENLARO Gold Emblem"
-            fill
-            sizes="112px"
-            className="object-contain"
-            priority
+            className="w-full h-full object-contain"
           />
         </div>
 
@@ -56,11 +57,11 @@ export const CenlaroLogo: React.FC<CenlaroLogoProps> = ({
   if (variant === 'emblem-only') {
     return (
       <div className={`relative ${className}`}>
-        <Image
-          src="/images/cenlaro-emblem.png"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={emblemSrc}
           alt="CENLARO Gold Emblem"
-          fill
-          className="object-contain"
+          className="w-full h-full object-contain"
         />
       </div>
     );
@@ -71,13 +72,11 @@ export const CenlaroLogo: React.FC<CenlaroLogoProps> = ({
     <div className={`flex items-center gap-4 select-none ${className}`}>
       {/* 1. Logo Emblem: Sun arc & flowing coffee landscape */}
       <div className="relative w-12 sm:w-14 h-7 sm:h-8 flex-shrink-0">
-        <Image
-          src="/images/cenlaro-emblem.png"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={emblemSrc}
           alt="CENLARO Emblem"
-          fill
-          sizes="56px"
-          className="object-contain"
-          priority
+          className="w-full h-full object-contain"
         />
       </div>
 

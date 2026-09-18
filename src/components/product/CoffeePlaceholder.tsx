@@ -9,6 +9,8 @@ interface CoffeePlaceholderProps {
   className?: string;
 }
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '');
+
 export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
   name,
   category,
@@ -30,12 +32,11 @@ export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
 
       {/* Authentic CENLARO Gold Emblem */}
       <div className="relative w-14 h-8 mb-2 flex-shrink-0">
-        <Image
-          src="/images/cenlaro-emblem.png"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`${basePath}/images/cenlaro-emblem.png`}
           alt="CENLARO Gold Emblem"
-          fill
-          sizes="56px"
-          className="object-contain drop-shadow"
+          className="w-full h-full object-contain drop-shadow"
         />
       </div>
 

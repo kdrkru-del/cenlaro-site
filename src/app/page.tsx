@@ -63,12 +63,11 @@ export default function HomePage() {
         <section className="relative bg-[#20150F] text-[#F4EFE7] pt-28 pb-36 px-4 sm:px-6 lg:px-8 overflow-hidden border-b border-[#3A2418]">
           {/* Background Photography with Luxury Vignette Overlays */}
           <div className="absolute inset-0 z-0">
-            <Image
-              src="/images/hero-coffee.jpg"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '')}/images/hero-coffee.jpg`}
               alt="CENLARO Selected Origins Coffee Beans and Raw Green Coffee"
-              fill
-              priority
-              className="object-cover object-center opacity-35 scale-105 transition-transform duration-1000"
+              className="w-full h-full object-cover object-center opacity-35 scale-105 transition-transform duration-1000"
             />
             {/* Multi-layered editorial gradients for readability & luxury depth */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#20150F]/90 via-[#20150F]/75 to-[#20150F]" />
