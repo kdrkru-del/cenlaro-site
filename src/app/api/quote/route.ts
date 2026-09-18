@@ -5,9 +5,9 @@ export async function POST(request: Request) {
   try {
     const payload: QuoteRequestPayload = await request.json();
 
-    if (!payload.name || !payload.email) {
+    if (!payload.name || !payload.phone) {
       return NextResponse.json(
-        { success: false, message: 'Name and Email are required fields.' },
+        { success: false, message: 'Name and Phone are required fields.' },
         { status: 400 }
       );
     }
@@ -16,14 +16,8 @@ export async function POST(request: Request) {
     console.log('[CENLARO B2B QUOTE INQUIRY RECEIVED]:', {
       timestamp: new Date().toISOString(),
       name: payload.name,
-      company: payload.company || 'N/A',
-      email: payload.email,
-      phone: payload.phone || 'N/A',
+      phone: payload.phone,
       product: payload.productName || payload.productSlug || 'General Wholesale',
-      volume: payload.volumeNeeded || 'Unspecified',
-      packaging: payload.packagingPreference || 'Unspecified',
-      destination: payload.destinationCountry || 'Not Specified',
-      message: payload.message || '',
     });
 
     // Architecture ready for external adapters (e.g. process.env.TELEGRAM_BOT_TOKEN or process.env.RESEND_API_KEY)
@@ -31,13 +25,8 @@ export async function POST(request: Request) {
       try {
         const text = `☕ *NEW CENLARO QUOTE REQUEST*\n\n` +
           `*Name:* ${payload.name}\n` +
-          `*Company:* ${payload.company || 'N/A'}\n` +
-          `*Email:* ${payload.email}\n` +
-          `*Phone:* ${payload.phone || 'N/A'}\n` +
-          `*Product:* ${payload.productName || 'General Inquiry'}\n` +
-          `*Volume:* ${payload.volumeNeeded}\n` +
-          `*Destination:* ${payload.destinationCountry || 'N/A'}\n` +
-          `*Message:* ${payload.message || 'N/A'}`;
+          `*Phone:* ${payload.phone}\n` +
+          `*Product:* ${payload.productName || payload.productSlug || 'General Inquiry'}`;
 
         await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
           method: 'POST',

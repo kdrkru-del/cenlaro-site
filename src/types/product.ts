@@ -42,13 +42,7 @@ export interface Product {
 
 export interface QuoteRequestPayload {
   name: string;
-  company?: string;
-  email: string;
-  phone?: string;
-  productSlug?: string;
+  phone: string;
   productName?: string;
-  volumeNeeded?: string;
-  packagingPreference?: string;
-  message?: string;
-  destinationCountry?: string;
+  productSlug?: string;
 }
