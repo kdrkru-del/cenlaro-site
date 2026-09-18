@@ -29,16 +29,9 @@ export const metadata: Metadata = {
   },
 };
 
-interface CoffeePageProps {
-  searchParams: Promise<{ product?: string }>;
-}
+export const dynamic = 'force-static';
 
-export default async function CoffeeCatalogPage({ searchParams }: CoffeePageProps) {
-  const resolvedParams = await searchParams;
-  const initialProductSlug = resolvedParams.product || '';
-  const selectedProduct = initialProductSlug
-    ? PRODUCTS.find((p) => p.slug === initialProductSlug)
-    : undefined;
+export default function CoffeeCatalogPage() {
 
   // JSON-LD Product & Breadcrumb Schema
   const jsonLd = {
@@ -118,16 +111,12 @@ export default async function CoffeeCatalogPage({ searchParams }: CoffeePageProp
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <CatalogExplorer
             initialProducts={PRODUCTS}
-            initialProductQuery={initialProductSlug}
           />
         </section>
 
         {/* Global Commercial Quote Form Section */}
         <section id="quote-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <QuoteForm
-            initialProductSlug={initialProductSlug}
-            initialProductName={selectedProduct?.name}
-          />
+          <QuoteForm />
         </section>
       </div>
     </>
