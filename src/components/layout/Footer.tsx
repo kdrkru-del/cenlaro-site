@@ -1,5 +1,5 @@
-import React from 'react';
 import Link from 'next/link';
+import { CenlaroLogo } from '@/components/ui/CenlaroLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,14 +8,9 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-14 border-b border-[#3A2418]/60">
           {/* Col 1: Brand & Philosophy */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full border border-[#C7A05A] flex items-center justify-center">
-                <span className="font-serif text-[#C7A05A] text-sm">C</span>
-              </div>
-              <span className="font-serif tracking-[0.28em] text-xl font-medium text-white">
-                CENLARO
-              </span>
-            </div>
+            <Link href="/" className="inline-block">
+              <CenlaroLogo theme="dark" variant="horizontal" />
+            </Link>
             <p className="text-xs text-stone-400 font-light leading-relaxed max-w-sm">
               CENLARO is an international coffee brand focused on selected origins, reliable sourcing and flexible coffee solutions for retail and business partners. From Vietnam to the world.
             </p>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Globe } from 'lucide-react';
+import { CenlaroLogo } from '@/components/ui/CenlaroLogo';
 
 export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,20 +13,8 @@ export const Header: React.FC = () => {
     <header className="sticky top-0 z-50 bg-[#20150F]/95 backdrop-blur-md border-b border-[#3A2418] text-[#F4EFE7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo - CENLARO proportions strictly maintained */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-full border border-[#C7A05A] flex items-center justify-center bg-[#20150F] group-hover:border-white transition-colors duration-300">
-            <span className="font-serif text-[#C7A05A] group-hover:text-white text-base tracking-wider font-light">
-              C
-            </span>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif tracking-[0.28em] text-lg sm:text-xl font-medium text-[#F4EFE7] group-hover:text-[#C7A05A] transition-colors duration-300">
-              CENLARO
-            </span>
-            <span className="text-[8px] tracking-[0.32em] text-[#C7A05A] uppercase -mt-0.5">
-              Selected Origins
-            </span>
-          </div>
+        <Link href="/" className="flex items-center group">
+          <CenlaroLogo theme="dark" variant="horizontal" />
         </Link>
 
         {/* Desktop Navigation */}

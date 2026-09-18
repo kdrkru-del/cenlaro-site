@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { PRODUCTS, getFeaturedProducts } from '@/data/products';
 import { ProductCard } from '@/components/catalog/ProductCard';
@@ -62,11 +63,22 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-[radial-gradient(#C7A05A_1px,transparent_1px)] [background-size:32px_32px] opacity-15 pointer-events-none" />
 
           <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center text-center">
-            <span className="editorial-badge text-[#C7A05A] mb-6 inline-block">
+            <div className="relative w-40 sm:w-48 h-20 sm:h-24 mb-6 overflow-hidden">
+              <Image
+                src="/images/cenlaro-logo.jpg"
+                alt="CENLARO Selected Origins"
+                fill
+                sizes="(max-width: 640px) 160px, 192px"
+                className="object-contain"
+                priority
+              />
+            </div>
+
+            <span className="editorial-badge text-[#C7A05A] mb-4 inline-block">
               Selected Origins • From Vietnam to the World
             </span>
 
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-tight max-w-4xl mb-6">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight max-w-4xl mb-6">
               COFFEE WITH CHARACTER
             </h1>
 
