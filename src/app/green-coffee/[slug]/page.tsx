@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getProductBySlug, PRODUCTS } from '@/data/products';
 import { TasteProfile } from '@/components/product/TasteProfile';
-import { CoffeePlaceholder } from '@/components/product/CoffeePlaceholder';
+import { ProductGallery } from '@/components/product/ProductGallery';
 import { QuoteForm } from '@/components/forms/QuoteForm';
 import { ShieldCheck, Anchor, Box, Award, Check } from 'lucide-react';
 
@@ -68,10 +68,10 @@ export default async function GreenProductDetailPage({ params }: GreenProductPag
           {/* Left: Green Coffee Visual */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div className="sticky top-28">
-              <CoffeePlaceholder
+              <ProductGallery
                 name={product.shortName}
                 category="Vietnam Green Raw Commodity"
-                className="h-80 sm:h-96 lg:h-[420px] shadow-lg rounded-sm"
+                images={product.images}
               />
 
               <div className="mt-4 flex items-center justify-between text-[11px] text-stone-500 px-1 font-mono">

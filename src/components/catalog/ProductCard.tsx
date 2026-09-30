@@ -28,6 +28,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               category={product.category}
               ratio={ratioLabel}
               roast={product.roast !== 'Unroasted' ? product.roast : undefined}
+              image={product.images?.[0]}
             />
           </div>
         </Link>
@@ -39,6 +40,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="absolute top-3 left-3 bg-[#20150F]/80 backdrop-blur-sm border border-[#C7A05A]/30 px-2 py-0.5 text-[9px] uppercase tracking-widest text-[#F4EFE7]">
           {product.category}
         </div>
+
+        {/* Photo count indicator if multiple photos */}
+        {product.images && product.images.length > 1 && (
+          <div className="absolute top-3 right-3 bg-[#20150F]/80 backdrop-blur-sm border border-[#C7A05A]/30 px-2 py-0.5 text-[9px] font-mono tracking-wider text-[#E2BA6C]">
+            {product.images.length} PHOTOS
+          </div>
+        )}
       </div>
 
       {/* Card Content */}

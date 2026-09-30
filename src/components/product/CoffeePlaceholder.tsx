@@ -1,11 +1,11 @@
 import React from 'react';
-import Image from 'next/image';
 
 interface CoffeePlaceholderProps {
   name: string;
   category: string;
   ratio?: string;
   roast?: string;
+  image?: string;
   className?: string;
 }
 
@@ -16,9 +16,41 @@ export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
   category,
   ratio,
   roast,
+  image,
   className = 'h-64 sm:h-72',
 }) => {
   const isGreen = category.toLowerCase().includes('green');
+  const resolvedImage = image ? (image.startsWith('http') ? image : `${basePath}${image}`) : undefined;
+
+  if (resolvedImage) {
+    return (
+      <div
+        className={`relative w-full overflow-hidden flex flex-col items-center justify-end p-5 text-center transition-all duration-700 select-none bg-[#180F0B] ${className}`}
+      >
+        {/* Real Product Photo */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={resolvedImage}
+          alt={name}
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+
+        {/* Subtle bottom gradient for badge readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#120B08]/80 via-transparent to-transparent pointer-events-none" />
+
+        {/* Subtle luxury inner border */}
+        <div className="absolute inset-2.5 border border-[#C7A05A]/25 pointer-events-none" />
+
+        {/* Bottom info overlay if ratio is present */}
+        {ratio && (
+          <div className="relative z-10 px-3 py-0.5 bg-[#20150F]/85 backdrop-blur-sm border border-[#C7A05A]/40 rounded text-[11px] font-mono tracking-widest text-[#F4EFE7]">
+            {ratio}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div

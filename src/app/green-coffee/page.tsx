@@ -72,12 +72,9 @@ export default function GreenCoffeeCategoryPage() {
               Direct origin contracts and spot shipment availability from Vietnam.
             </p>
           </div>
-          <span className="text-xs font-serif text-[#98733C]">
-            {greenProducts.length} Lots Available
-          </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {greenProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -88,9 +85,6 @@ export default function GreenCoffeeCategoryPage() {
       <section className="bg-white border-y border-[#3A2418]/10 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block mb-2">
-              Export Assurance
-            </span>
             <h3 className="font-serif text-3xl text-[#20150F] font-normal">
               Quality Compliance &amp; Standards
             </h3>

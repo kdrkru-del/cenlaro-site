@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { getProductBySlug, PRODUCTS } from '@/data/products';
 import { TasteProfile } from '@/components/product/TasteProfile';
 import { RoastIndicator } from '@/components/product/RoastIndicator';
-import { CoffeePlaceholder } from '@/components/product/CoffeePlaceholder';
+import { ProductGallery } from '@/components/product/ProductGallery';
 import { QuoteForm } from '@/components/forms/QuoteForm';
 import { Check, ShieldCheck, Box, PackageCheck, ArrowLeft, ArrowRight } from 'lucide-react';
 
@@ -102,12 +102,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             {/* Left: Large High-Resolution Visual */}
             <div className="lg:col-span-5 flex flex-col justify-center">
               <div className="sticky top-28">
-                <CoffeePlaceholder
+                <ProductGallery
                   name={product.shortName}
                   category={product.category}
+                  images={product.images}
                   ratio={ratioLabel}
                   roast={product.roast !== 'Unroasted' ? product.roast : undefined}
-                  className="h-80 sm:h-96 lg:h-[420px] shadow-lg rounded-sm"
                 />
 
                 <div className="mt-4 flex items-center justify-between text-[11px] text-stone-500 px-1 font-mono">
