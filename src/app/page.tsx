@@ -6,6 +6,7 @@ import { PRODUCTS, getFeaturedProducts } from '@/data/products';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { QuoteForm } from '@/components/forms/QuoteForm';
 import { ArrowRight, Check, Globe, Shield, Sparkles } from 'lucide-react';
+import { getAssetUrl } from '@/lib/basePath';
 
 export const metadata: Metadata = {
   title: 'CENLARO | International Coffee Brand & Vietnamese Coffee Exporter',
@@ -66,7 +67,7 @@ export default function HomePage() {
           <div className="absolute inset-0 z-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`${process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '')}/images/hero-coffee-bg.jpg`}
+              src={getAssetUrl('/images/hero-coffee-bg.jpg')}
               alt="CENLARO Selected Origins Vietnamese Coffee Beans and Highland Plantation"
               className="w-full h-full object-cover object-center scale-[1.02] transform"
             />

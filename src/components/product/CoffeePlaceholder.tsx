@@ -1,4 +1,7 @@
-import React from 'react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { getAssetUrl } from '@/lib/basePath';
 
 interface CoffeePlaceholderProps {
   name: string;
@@ -9,8 +12,6 @@ interface CoffeePlaceholderProps {
   className?: string;
 }
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '');
-
 export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
   name,
   category,
@@ -20,9 +21,34 @@ export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
   className = 'aspect-square w-full',
 }) => {
   const isGreen = category.toLowerCase().includes('green');
-  const resolvedImage = image ? (image.startsWith('http') ? image : `${basePath}${image}`) : undefined;
+  const initialUrl = image ? getAssetUrl(image) : undefined;
+  const [currentSrc, setCurrentSrc] = useState<string | undefined>(initialUrl);
+  const [hasError, setHasError] = useState(false);
+  const [hasRetried, setHasRetried] = useState(false);
 
-  if (resolvedImage) {
+  useEffect(() => {
+    setHasError(false);
+    setHasRetried(false);
+    setCurrentSrc(image ? getAssetUrl(image) : undefined);
+  }, [image]);
+
+  const handleImageError = () => {
+    // If it failed and hasn't retried yet, test if toggling /cenlaro-site helps
+    if (!hasRetried && currentSrc) {
+      setHasRetried(true);
+      if (currentSrc.startsWith('/cenlaro-site/')) {
+        setCurrentSrc(currentSrc.replace('/cenlaro-site', ''));
+        return;
+      } else if (!currentSrc.startsWith('http')) {
+        setCurrentSrc(`/cenlaro-site${currentSrc.startsWith('/') ? '' : '/'}${currentSrc}`);
+        return;
+      }
+    }
+    // If retry also failed, switch gracefully to elegant branded placeholder
+    setHasError(true);
+  };
+
+  if (currentSrc && !hasError) {
     return (
       <div
         className={`relative w-full aspect-square overflow-hidden bg-[#180F0B] select-none ${className}`}
@@ -30,10 +56,11 @@ export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
         {/* Pure Clean Coffee Photograph — No text or badges on photo */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={resolvedImage}
+          src={currentSrc}
           alt={name}
           className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
           loading="lazy"
+          onError={handleImageError}
         />
         {/* Subtle luxury edge border */}
         <div className="absolute inset-0 border border-[#3A2418]/10 pointer-events-none group-hover:border-[#C7A05A]/40 transition-colors duration-500" />
@@ -55,7 +82,7 @@ export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
       <div className="relative w-14 h-8 mb-2 flex-shrink-0">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={`${basePath}/images/cenlaro-emblem.png`}
+          src={getAssetUrl('/images/cenlaro-emblem.png')}
           alt="CENLARO Gold Emblem"
           className="w-full h-full object-contain drop-shadow"
         />

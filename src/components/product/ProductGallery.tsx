@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { CoffeePlaceholder } from './CoffeePlaceholder';
+import { getAssetUrl } from '@/lib/basePath';
 
 interface ProductGalleryProps {
   name: string;
@@ -10,10 +11,6 @@ interface ProductGalleryProps {
   ratio?: string;
   roast?: string;
 }
-
-const basePath =
-  process.env.NEXT_PUBLIC_BASE_PATH ||
-  (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '');
 
 export const ProductGallery: React.FC<ProductGalleryProps> = ({
   name,
@@ -37,9 +34,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
   }
 
   const activeImage = images[activeIndex] || images[0];
-  const resolvedActive = activeImage.startsWith('http')
-    ? activeImage
-    : `${basePath}${activeImage}`;
+  const resolvedActive = getAssetUrl(activeImage);
 
   return (
     <div className="space-y-3">
@@ -58,7 +53,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
       {images.length > 1 && (
         <div className="grid grid-cols-4 gap-2.5">
           {images.map((img, idx) => {
-            const resolvedThumb = img.startsWith('http') ? img : `${basePath}${img}`;
+            const resolvedThumb = getAssetUrl(img);
             const isSelected = idx === activeIndex;
             return (
               <button

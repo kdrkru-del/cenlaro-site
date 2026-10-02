@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { getAssetUrl } from '@/lib/basePath';
 
 interface CenlaroLogoProps {
   className?: string;
@@ -8,8 +9,6 @@ interface CenlaroLogoProps {
   showTagline?: boolean;
 }
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '');
-
 export const CenlaroLogo: React.FC<CenlaroLogoProps> = ({
   className = '',
   theme = 'dark',
@@ -17,7 +16,7 @@ export const CenlaroLogo: React.FC<CenlaroLogoProps> = ({
   showTagline = true,
 }) => {
   const isDarkBg = theme === 'dark';
-  const emblemSrc = `${basePath}/images/cenlaro-emblem.png`;
+  const emblemSrc = getAssetUrl('/images/cenlaro-emblem.png');
 
   if (variant === 'stacked') {
     return (
