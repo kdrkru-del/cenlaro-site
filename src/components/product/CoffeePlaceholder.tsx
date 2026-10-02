@@ -17,7 +17,7 @@ export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
   ratio,
   roast,
   image,
-  className = 'h-64 sm:h-72',
+  className = 'aspect-square w-full',
 }) => {
   const isGreen = category.toLowerCase().includes('green');
   const resolvedImage = image ? (image.startsWith('http') ? image : `${basePath}${image}`) : undefined;
@@ -25,36 +25,25 @@ export const CoffeePlaceholder: React.FC<CoffeePlaceholderProps> = ({
   if (resolvedImage) {
     return (
       <div
-        className={`relative w-full overflow-hidden flex flex-col items-center justify-end p-5 text-center transition-all duration-700 select-none bg-[#180F0B] ${className}`}
+        className={`relative w-full aspect-square overflow-hidden bg-[#180F0B] select-none ${className}`}
       >
-        {/* Real Product Photo */}
+        {/* Pure Clean Coffee Photograph — No text or badges on photo */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={resolvedImage}
           alt={name}
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
           loading="lazy"
         />
-
-        {/* Subtle bottom gradient for badge readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#120B08]/80 via-transparent to-transparent pointer-events-none" />
-
-        {/* Subtle luxury inner border */}
-        <div className="absolute inset-2.5 border border-[#C7A05A]/25 pointer-events-none" />
-
-        {/* Bottom info overlay if ratio is present */}
-        {ratio && (
-          <div className="relative z-10 px-3 py-0.5 bg-[#20150F]/85 backdrop-blur-sm border border-[#C7A05A]/40 rounded text-[11px] font-mono tracking-widest text-[#F4EFE7]">
-            {ratio}
-          </div>
-        )}
+        {/* Subtle luxury edge border */}
+        <div className="absolute inset-0 border border-[#3A2418]/10 pointer-events-none group-hover:border-[#C7A05A]/40 transition-colors duration-500" />
       </div>
     );
   }
 
   return (
     <div
-      className={`relative w-full overflow-hidden flex flex-col items-center justify-center p-6 text-center transition-all duration-700 select-none ${
+      className={`relative w-full aspect-square overflow-hidden flex flex-col items-center justify-center p-6 text-center transition-all duration-700 select-none ${
         isGreen ? 'bg-gradient-to-br from-[#2D3827] to-[#1F261B]' : 'bg-gradient-to-br from-[#261A13] via-[#1D130E] to-[#120B08]'
       } ${className}`}
     >

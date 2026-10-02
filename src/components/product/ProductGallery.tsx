@@ -52,11 +52,6 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({
           className="w-full h-full object-cover object-center transition-all duration-500"
         />
         <div className="absolute inset-2.5 border border-[#C7A05A]/25 pointer-events-none" />
-        {ratio && (
-          <div className="absolute bottom-4 left-4 px-3 py-1 bg-[#20150F]/85 backdrop-blur-sm border border-[#C7A05A]/40 rounded text-xs font-mono tracking-widest text-[#F4EFE7]">
-            {ratio}
-          </div>
-        )}
       </div>
 
       {/* Thumbnail Strip */}
