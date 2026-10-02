@@ -17,6 +17,8 @@ const inter = Inter({
   display: 'swap',
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || (process.env.GITHUB_ACTIONS === 'true' ? '/cenlaro-site' : '');
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://cenlaro.com'),
   title: {
@@ -36,7 +38,14 @@ export const metadata: Metadata = {
     description: 'Selected origins. Coffee with character.',
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: `${basePath}/favicon.ico`, sizes: 'any' },
+      { url: `${basePath}/icon.png`, type: 'image/png', sizes: '512x512' },
+    ],
+    apple: [
+      { url: `${basePath}/apple-icon.png`, sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: `${basePath}/favicon.ico`,
   },
 };
 
