@@ -183,8 +183,8 @@ export const PRODUCTS: Product[] = [
   {
     id: 'vietnam-green-catimor',
     slug: 'catimor',
-    name: 'GREEN CATIMOR',
-    shortName: 'Green Catimor',
+    name: 'CATIMOR',
+    shortName: 'Catimor',
     category: 'Green Coffee',
     coffeeType: 'Arabica',
     format: 'Green',
@@ -217,14 +217,14 @@ export const PRODUCTS: Product[] = [
     images: ['/images/products/green-catimor.jpg'],
     featured: false,
     accentColor: '#65402B',
-    seoTitle: 'Vietnam Green Catimor Coffee Supplier | CENLARO',
-    seoDescription: 'Direct export of washed Green Catimor Arabica coffee beans from Vietnam.'
+    seoTitle: 'Vietnam Catimor Coffee Supplier | CENLARO',
+    seoDescription: 'Direct export of washed Catimor Arabica coffee beans from Vietnam.'
   },
   {
     id: 'vietnam-green-moka',
     slug: 'moka',
-    name: 'GREEN MOKA CAU DAT',
-    shortName: 'Green Moka Cau Dat',
+    name: 'MOKA CAU DAT',
+    shortName: 'Moka Cau Dat',
     category: 'Green Coffee',
     coffeeType: 'Arabica',
     format: 'Green',
@@ -257,14 +257,14 @@ export const PRODUCTS: Product[] = [
     images: ['/images/products/green-moka.jpg'],
     featured: true,
     accentColor: '#C7A05A',
-    seoTitle: 'Vietnam Green Moka Cau Dat Specialty Coffee | CENLARO',
-    seoDescription: 'Direct export of rare Green Moka Arabica from Cau Dat, Da Lat.'
+    seoTitle: 'Vietnam Moka Cau Dat Specialty Coffee | CENLARO',
+    seoDescription: 'Direct export of rare Moka Arabica from Cau Dat, Da Lat.'
   },
   {
     id: 'vietnam-green-typica',
     slug: 'typica',
-    name: 'GREEN TYPICA',
-    shortName: 'Green Typica',
+    name: 'TYPICA',
+    shortName: 'Typica',
     category: 'Green Coffee',
     coffeeType: 'Arabica',
     format: 'Green',
@@ -287,7 +287,7 @@ export const PRODUCTS: Product[] = [
     bitterness: 1,
     intensity: 3,
     description: 'Heritage Typica variety preserved in the volcanic soils of Da Lat. Pure Arabica lineage delivering elegant sweetness, balanced malic brightness, and refined clarity.',
-    shortDescription: 'Heritage Green Typica Arabica with crisp sweetness and delicate florals.',
+    shortDescription: 'Heritage Typica Arabica with crisp sweetness and delicate florals.',
     packaging: ['30 kg / 60 kg GrainPro bags in cartons'],
     MOQ: '500 kg / Pallet or Container',
     wholesale: true,
@@ -297,14 +297,14 @@ export const PRODUCTS: Product[] = [
     images: ['/images/products/green-typica.jpg'],
     featured: false,
     accentColor: '#C7A05A',
-    seoTitle: 'Vietnam Green Typica Arabica Exporter | CENLARO',
-    seoDescription: 'Premium Green Typica coffee beans from Da Lat, Vietnam.'
+    seoTitle: 'Vietnam Typica Arabica Exporter | CENLARO',
+    seoDescription: 'Premium Typica coffee beans from Da Lat, Vietnam.'
   },
   {
     id: 'vietnam-green-yellow-bourbon',
     slug: 'yellow-bourbon',
-    name: 'GREEN YELLOW BOURBON',
-    shortName: 'Green Yellow Bourbon',
+    name: 'YELLOW BOURBON',
+    shortName: 'Yellow Bourbon',
     category: 'Green Coffee',
     coffeeType: 'Arabica',
     format: 'Green',
@@ -337,8 +337,8 @@ export const PRODUCTS: Product[] = [
     images: ['/images/products/green-yellow-bourbon.jpg'],
     featured: true,
     accentColor: '#E2BA6C',
-    seoTitle: 'Vietnam Green Yellow Bourbon Coffee Beans | CENLARO',
-    seoDescription: 'Specialty Green Yellow Bourbon coffee beans from Vietnam.'
+    seoTitle: 'Vietnam Yellow Bourbon Coffee Beans | CENLARO',
+    seoDescription: 'Specialty Yellow Bourbon coffee beans from Vietnam.'
   },
 
   // ==========================================
