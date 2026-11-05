@@ -1,0 +1,536 @@
+import { Locale } from '@/dictionaries/types';
+import { Product } from '@/types/product';
+
+export interface ProductTranslation {
+  name: string;
+  shortName: string;
+  description: string;
+  shortDescription: string;
+  flavorNotes: string[];
+  profile: string;
+  region?: string;
+  processing?: string;
+  suitableFor?: string[];
+  category?: string;
+  origin?: string;
+}
+
+export const PRODUCT_TRANSLATIONS: Record<string, Record<Locale, ProductTranslation>> = {
+  'robusta-screen-16': {
+    ru: {
+      name: 'РОБУСТА КЛИН СКРИН 16',
+      shortName: 'Робуста Клин 16',
+      description: 'Вьетнамская зеленая робуста Скрин 16 — эталонная рабочая лошадка для мировых обжарщиков и производителей растворимого кофе. Механическая калибровка от 6.3 мм, минимальный уровень дефектов и строгий контроль влажности.',
+      shortDescription: 'Плотное тело, низкая кислотность и классический вьетнамский характер с чистой чашкой.',
+      flavorNotes: ['Горький какао', 'Жареный грецкий орех', 'Зерновые', 'Карамелизированное дерево'],
+      profile: 'Мощное плотное тело, минимальная кислотность и классический профиль вьетнамской робусты.',
+      region: 'Центральное нагорье (Дак Лак и Лам Донг)',
+      processing: 'Влажная полировка (Wet Polished)',
+    },
+    en: {
+      name: 'ROBUSTA CLEAN',
+      shortName: 'Robusta Clean',
+      description: 'Vietnam Green Robusta Screen 16 is an internationally renowned workhorse for espresso roasters, soluble manufacturers, and commercial blends.',
+      shortDescription: 'Strong body, low acidity and classic Vietnamese Robusta character with clean cup standard.',
+      flavorNotes: ['Dark Cocoa', 'Toasted Walnut', 'Grain', 'Caramelized Wood'],
+      profile: 'Strong body, low acidity and classic Vietnamese Robusta character with clean cup standard.',
+      region: 'Central Highlands (Dak Lak & Lam Dong)',
+      processing: 'Wet Polished / Cleaned',
+    },
+    vi: {
+      name: 'ROBUSTA SÀNG 16 ĐÁNH BÓNG',
+      shortName: 'Robusta Sàng 16',
+      description: 'Cà phê nhân xanh Robusta Sàng 16 xuất khẩu, chuẩn cơ học tối thiểu 90% trên sàng 6.3mm. Phù hợp cho nhà rang xay công nghiệp và chế biến hòa tan.',
+      shortDescription: 'Thể chất dày dặn, độ chua thấp và hương vị Robusta Việt Nam truyền thống sạch tách.',
+      flavorNotes: ['Cacao đắng', 'Hạt óc chó nướng', 'Ngũ cốc', 'Gỗ caramel'],
+      profile: 'Thể chất mạnh mẽ, vị đắng êm và hương vị đậm đà truyền thống.',
+      region: 'Tây Nguyên (Đắk Lắk & Lâm Đồng)',
+      processing: 'Đánh bóng ướt (Wet Polished)',
+    },
+  },
+
+  'robusta-screen-18': {
+    ru: {
+      name: 'РОБУСТА ХОНЕЙ СКРИН 18',
+      shortName: 'Робуста Хоней 18',
+      description: 'Флагманский лот вьетнамской робусты. Отборные крупные зерна Скрин 18 из Буонметхуота, собранные на пике зрелости ягод и обработанные по технологии Honey. Обеспечивают непревзойденную плотную крема в эспрессо.',
+      shortDescription: 'Плотное тело, насыщенное ощущение во рту и благородная сладость медовой обработки.',
+      flavorNotes: ['Какао-бобы', 'Жареный фундук', 'Солод', 'Медовая карамель'],
+      profile: 'Богатое округлое тело, мощный фундамент крема и естественная сладость.',
+      region: 'Буонметхуот (Дак Лак)',
+      processing: 'Honey-процесс (Semi-Washed)',
+    },
+    en: {
+      name: 'ROBUSTA HONEY',
+      shortName: 'Robusta Honey',
+      description: 'Our flagship Robusta offering. Screen 18 green beans selected from mature cherries in Buon Ma Thuot with honey-style processing.',
+      shortDescription: 'Bold body, rich mouthfeel and exceptionally uniform Screen 18 bean calibration with honey sweetness.',
+      flavorNotes: ['Cacao Nibs', 'Roasted Hazelnut', 'Malt', 'Caramelized Honey'],
+      profile: 'Bold, rich mouthfeel, dense crema foundation, and exceptionally uniform bean size with honey-process sweetness.',
+      region: 'Central Highlands (Buon Ma Thuot, Dak Lak)',
+      processing: 'Honey Process / Grade 1 Clean',
+    },
+    vi: {
+      name: 'ROBUSTA HONEY SÀNG 18',
+      shortName: 'Robusta Honey 18',
+      description: 'Dòng Robusta cao cấp nhất được thu hái quả chín đỏ tại Buôn Ma Thuột. Kích thước hạt chuẩn sàng 18 (7.1mm) đồng đều tuyệt đối.',
+      shortDescription: 'Thể chất đậm đà, kem dày mịn và vị ngọt tự nhiên từ quy trình chế biến mật ong.',
+      flavorNotes: ['Hạt cacao', 'Hạt phỉ nướng', 'Mạch nha', 'Mật ong caramel'],
+      profile: 'Vị đắng ngọt cân bằng, hậu vị kéo dài và độ đậm đà vượt trội.',
+      region: 'Buôn Ma Thuột (Đắk Lắk)',
+      processing: 'Chế biến Honey (Hạng 1 xuất khẩu)',
+    },
+  },
+
+  'arabica-commercial': {
+    ru: {
+      name: 'АРАБИКА ВЫСОКОЕ КАЧЕСТВО',
+      shortName: 'Арабика High Quality',
+      description: 'Мытая высокогорная арабика из провинций Лам Донг и Шон Ла. Оптимальный выбор для обжарщиков, которым требуется качественная основа для смесей по честной цене.',
+      shortDescription: 'Чистая чашка со сбалансированной мягкой кислотностью и легкой сладостью.',
+      flavorNotes: ['Тростниковый сахар', 'Свежие цитрусовые', 'Черный чай', 'Миндаль'],
+      profile: 'Чистый профиль чашки со сбалансированной кислотностью и ароматической глубиной.',
+      region: 'Лам Донг и Шон Ла',
+      processing: 'Мытая обработка (Fully Washed)',
+    },
+    en: {
+      name: 'ARABICA HIGH QUALITY',
+      shortName: 'Arabica High Quality',
+      description: 'Vietnam High Quality Arabica represents an exceptional cost-to-performance ratio for roasters seeking reliable washed Arabica volume.',
+      shortDescription: 'Clean cup profile with balanced acidity and aromatic complexity.',
+      flavorNotes: ['Brown Sugar', 'Crisp Citrus', 'Black Tea', 'Almond'],
+      profile: 'Clean cup profile with balanced mild acidity and aromatic complexity at commercial scale.',
+      region: 'Lam Dong & Son La',
+      processing: 'Fully Washed',
+    },
+    vi: {
+      name: 'ARABICA CHẤT LƯỢNG CAO',
+      shortName: 'Arabica HQ',
+      description: 'Cà phê Arabica chế biến ướt từ vùng nguyên liệu Lâm Đồng và Sơn La, giải pháp cân đối chi phí và hương vị cho các nhà rang xay.',
+      shortDescription: 'Hương vị trong trẻo, độ chua thanh tao và vị ngọt dịu nhẹ.',
+      flavorNotes: ['Đường nâu', 'Cam chanh tươi', 'Trà đen', 'Hạnh nhân'],
+      profile: 'Tách cà phê thanh khiết với độ chua malic cân bằng và hương thơm phong phú.',
+      region: 'Lâm Đồng & Sơn La',
+      processing: 'Chế biến ướt hoàn toàn (Fully Washed)',
+    },
+  },
+
+  'arabica-premium': {
+    ru: {
+      name: 'АРАБИКА ПРЕМИУМ КАУ ДАТ',
+      shortName: 'Арабика Кау Дат',
+      description: 'Гордость вьетнамского спешелти кофе. Выращена на высоте более 1 500 метров в туманной долине Кау Дат (Далат). Отличается ярким цветочным ароматом жасмина и сочной яблочной кислотностью.',
+      shortDescription: 'Высокогорная арабика Кау Дат: ноты жасмина, бергамота и молочного шоколада.',
+      flavorNotes: ['Цветы жасмина', 'Бергамот', 'Красное яблоко', 'Молочный шоколад'],
+      profile: 'Элегантная яркая кислотность, цветочно-цитрусовый букет и шелковистое тело.',
+      region: 'Кау Дат, Далат (высота 1 500 – 1 650м)',
+      processing: 'Мытая родниковая обработка',
+    },
+    en: {
+      name: 'ARABICA PREMIUM CAU DAT',
+      shortName: 'Arabica Premium',
+      description: 'Sourced from the legendary misty terroir of Cau Dat (Da Lat) at elevations exceeding 1,500m. Recognized globally for floral brightness and malic clarity.',
+      shortDescription: 'High-altitude Cau Dat Arabica: jasmine blossom, bergamot citrus, and milk chocolate finish.',
+      flavorNotes: ['Jasmine Florals', 'Bergamot Citrus', 'Red Apple', 'Milk Chocolate'],
+      profile: 'Vibrant malic acidity, delicate floral perfume, and velvety sweet finish.',
+      region: 'Cau Dat, Da Lat (1,500m+ Elevation)',
+      processing: 'Fully Washed Spring Water',
+    },
+    vi: {
+      name: 'ARABICA CẦU ĐẤT CAO CẤP',
+      shortName: 'Arabica Cầu Đất',
+      description: 'Vùng trồng Cầu Đất huyền thoại ở độ cao trên 1.500m quanh năm sương mù. Dòng Arabica cao cấp bậc nhất Việt Nam với hương hoa nhài và vị ngọt hậu.',
+      shortDescription: 'Arabica Cầu Đất vùng cao: hương hoa nhài, cam bergamot và sô-cô-la sữa.',
+      flavorNotes: ['Hoa nhài', 'Cam Bergamot', 'Táo đỏ', 'Sô-cô-la sữa'],
+      profile: 'Độ chua sáng tinh tế, hương hoa ngát và vị ngọt sâu lắng.',
+      region: 'Cầu Đất, Đà Lạt (Độ cao 1.500m – 1.650m)',
+      processing: 'Chế biến ướt nước suối vùng cao',
+    },
+  },
+
+  'catimor': {
+    ru: {
+      name: 'АРАБИКА КАТИМОР КАУ ДАТ',
+      shortName: 'Катимор Кау Дат',
+      description: 'Основная высокогорная разновидность арабики во Вьетнаме, акклиматизированная на вулканических почвах Далата. Сбалансированный сладкий профиль с фруктовыми нотами.',
+      shortDescription: 'Насыщенная высокогорная арабика с мягкой цитрусовой сладостью.',
+      flavorNotes: ['Спелая слива', 'Карамель', 'Лесной орех', 'Красная смородина'],
+      profile: 'Хорошая плотность, мягкая цитрусовая кислотность и долгое ореховое послевкусие.',
+      region: 'Кау Дат, Лам Донг',
+      processing: 'Мытая обработка',
+    },
+    en: {
+      name: 'ARABICA CATIMOR CAU DAT',
+      shortName: 'Catimor Cau Dat',
+      description: 'The defining high-altitude Arabica variety of Vietnam, flourishing in Cau Dat volcanic basalt soils with balanced fruit sweetness.',
+      shortDescription: 'Full-bodied highland Arabica lot with sweet stone fruit acidity.',
+      flavorNotes: ['Ripe Plum', 'Caramel', 'Hazelnut', 'Red Currant'],
+      profile: 'Medium-full body, rounded fruit acidity, and prolonged nutty finish.',
+      region: 'Cau Dat, Lam Dong',
+      processing: 'Fully Washed',
+    },
+    vi: {
+      name: 'ARABICA CATIMOR CẦU ĐẤT',
+      shortName: 'Catimor Cầu Đất',
+      description: 'Giống Arabica chủ lực tại Cầu Đất, thích nghi hoàn hảo với thổ nhưỡng đất đỏ bazan vùng cao cho vị ngọt mận chín thanh khiết.',
+      shortDescription: 'Arabica thể chất đầy đặn với vị chua ngọt của trái cây chín mọng.',
+      flavorNotes: ['Mận chín', 'Caramel', 'Hạt dẻ', 'Quả lý chua đỏ'],
+      profile: 'Thể chất đầm ấm, độ chua dịu êm và hậu vị hạnh nhân kéo dài.',
+      region: 'Cầu Đất, Lâm Đồng',
+      processing: 'Chế biến ướt',
+    },
+  },
+
+  'moka': {
+    ru: {
+      name: 'МОКА КАУ ДАТ ХЕРИТАДЖ',
+      shortName: 'Мока Кау Дат',
+      description: 'Редчайшая историческая разновидность арабики, завезенная французами в 1925 году. Мелкое круглое зерно со сложным пряно-шоколадным ароматом бурбонского типа.',
+      shortDescription: 'Легендарный редкий сорт Мока: изысканные пряности, цветы и темный шоколад.',
+      flavorNotes: ['Благородные специи', 'Сухофрукты', 'Цветочный мед', 'Темный шоколад'],
+      profile: 'Комплексный аристократичный букет, тонкая винная кислотность и плотная структура.',
+      region: 'Кау Дат, Далат (1 600м)',
+      processing: 'Традиционная мытая обработка',
+    },
+    en: {
+      name: 'MOKA CAU DAT HERITAGE',
+      shortName: 'Moka Cau Dat',
+      description: 'The rarest heritage Arabica variety preserved since French colonial cultivation in 1925. Small bourbon-type beans of exceptional complexity.',
+      shortDescription: 'Legendary rare Moka heritage lot: refined spice, wildflower honey, and dark cocoa.',
+      flavorNotes: ['Aromatic Spices', 'Dried Fig', 'Wildflower Honey', 'Dark Chocolate'],
+      profile: 'Complex aristocratic profile, subtle winey acidity, and dense mouthfeel.',
+      region: 'Cau Dat, Da Lat (1,600m)',
+      processing: 'Traditional Washed',
+    },
+    vi: {
+      name: 'MOKA CẦU ĐẤT DI SẢN',
+      shortName: 'Moka Cầu Đất',
+      description: 'Giống Moka di sản quý hiếm được người Pháp đưa vào Cầu Đất từ năm 1925. Hạt nhỏ tròn trĩnh với phức hợp hương thơm nồng nàn.',
+      shortDescription: 'Dòng Moka di sản huyền thoại: gia vị thơm, mật ong rừng và cacao đen.',
+      flavorNotes: ['Gia vị thơm', 'Quả sung khô', 'Mật hoa rừng', 'Sô-cô-la đen'],
+      profile: 'Tách cà phê quý phái, hương thơm ngát và độ sâu hương vị bậc nhất.',
+      region: 'Cầu Đất, Đà Lạt (1.600m)',
+      processing: 'Chế biến ướt truyền thống',
+    },
+  },
+
+  'typica': {
+    ru: {
+      name: 'ТИПИКА КАУ ДАТ МИКРОЛОТ',
+      shortName: 'Типика Кау Дат',
+      description: 'Аутентичный микролот древней ветви арабики Typica. Собрана вручную на старых участках Кау Дат. Чашка музейного уровня чистоты и сладости.',
+      shortDescription: 'Микролот чистой Типики: жасмин, сладкий персик и медовая патока.',
+      flavorNotes: ['Жасмин', 'Белый персик', 'Мед', 'Светлая карамель'],
+      profile: 'Высокая сладость, шелковистая текстура, чистая чайная прозрачность вкуса.',
+      region: 'Кау Дат (1 600м)',
+      processing: 'Мытая родниковая обработка',
+    },
+    en: {
+      name: 'TYPICA CAU DAT MICRO-LOT',
+      shortName: 'Typica Cau Dat',
+      description: 'Authentic heirloom Arabica Typica micro-lot harvested from heritage trees in Cau Dat. Pristine cup clarity and crystalline sweetness.',
+      shortDescription: 'Pure Typica micro-lot: white peach, jasmine florals, and golden honey.',
+      flavorNotes: ['Jasmine', 'White Peach', 'Honey', 'Light Caramel'],
+      profile: 'High sweetness, silky mouthfeel, tea-like transparency, and elegant citrus.',
+      region: 'Cau Dat (1,600m)',
+      processing: 'Fully Washed Spring Water',
+    },
+    vi: {
+      name: 'TYPICA CẦU ĐẤT MICRO-LOT',
+      shortName: 'Typica Cầu Đất',
+      description: 'Lô vi mô giống Typica thuần chủng thu hái từ những gốc cà phê cổ tại Cầu Đất. Độ trong trẻo và thanh khiết hoàn mỹ.',
+      shortDescription: 'Lô Typica thuần chủng: hoa nhài, đào trắng và mật ong vàng.',
+      flavorNotes: ['Hoa nhài', 'Đào trắng', 'Mật ong', 'Caramel sáng'],
+      profile: 'Độ ngọt vượt trội, thể chất mịn màng như lụa và hậu vị thanh sạch.',
+      region: 'Cầu Đất (1.600m)',
+      processing: 'Chế biến ướt suối khoáng',
+    },
+  },
+
+  'yellow-bourbon': {
+    ru: {
+      name: 'ЖЕЛТЫЙ БУРБОН СПЕШЕЛТИ',
+      shortName: 'Желтый Бурбон',
+      description: 'Эксклюзивная спешелти арабика с ярко-желтыми спелыми ягодами. Натурально повышенное содержание сахарозы обеспечивает густую сладость тропических фруктов.',
+      shortDescription: 'Спешелти Желтый Бурбон: сочное манго, маракуйя и сливочная карамель.',
+      flavorNotes: ['Спелое манго', 'Маракуйя', 'Тростниковый сахар', 'Сливочная карамель'],
+      profile: 'Тропическая сочная сладость, яркий аромат и кремовое послевкусие.',
+      region: 'Кау Дат (1 550 – 1 650м)',
+      processing: 'Медовая анаэробная ферментация',
+    },
+    en: {
+      name: 'YELLOW BOURBON SPECIALTY',
+      shortName: 'Yellow Bourbon',
+      description: 'Rare yellow-cherry Arabica variety ripening to vibrant gold. Naturally high sucrose content unlocks dazzling tropical fruit sweetness.',
+      shortDescription: 'Specialty Yellow Bourbon: ripe mango, passionfruit, and creamy caramel.',
+      flavorNotes: ['Ripe Mango', 'Passionfruit', 'Raw Cane Sugar', 'Creamy Toffee'],
+      profile: 'Tropical sweetness, dynamic acidity, and luminous dessert-like finish.',
+      region: 'Cau Dat (1,550 – 1,650m)',
+      processing: 'Honey Anaerobic Fermentation',
+    },
+    vi: {
+      name: 'YELLOW BOURBON ĐẶC SẢN',
+      shortName: 'Yellow Bourbon',
+      description: 'Dòng Arabica quả vàng quý phái Cầu Đất với hàm lượng đường tự nhiên rất cao, tạo nên vị ngọt đậm đà của trái cây nhiệt đới.',
+      shortDescription: 'Yellow Bourbon đặc sản: xoài chín, chanh dây và kẹo bơ kem.',
+      flavorNotes: ['Xoài chín', 'Chanh dây', 'Đường mía thô', 'Kẹo bơ béo'],
+      profile: 'Vị ngọt mọng nước nhiệt đới, cấu trúc cân bằng và hậu vị êm dịu.',
+      region: 'Cầu Đất (1.550m – 1.650m)',
+      processing: 'Lên men yếm khí Honey',
+    },
+  },
+
+  // -------------------------------------------------------------
+  // ROASTED SINGLE ORIGINS & SIGNATURE BLENDS
+  // -------------------------------------------------------------
+  'robusta': {
+    ru: {
+      name: '100% РОБУСТА ЖАРЕНАЯ В ЗЕРНАХ',
+      shortName: 'Робуста 100%',
+      description: 'Традиционная вьетнамская робуста темной обжарки из Буонметхуота. Отборные крупные зерна Скрин 16/18. Монументальное плотное тело, богатейшая крема и нулевая кислотность.',
+      shortDescription: '100% отборная робуста Буонметхуот: горький шоколад 85%, фундук и густая крема.',
+      flavorNotes: ['Горький шоколад 85%', 'Жареный фундук', 'Патока', 'Густая крема'],
+      profile: 'Бескомпромиссная крепость, сверхплотное тело и плотная золотистая пенка крема.',
+      region: 'Буонметхуот, Дак Лак',
+      processing: 'Темная обжарка для эспрессо и фина',
+      suitableFor: ['Эспрессо', 'Вьетнамский фин', 'Мока', 'Колд-брю'],
+    },
+    en: {
+      name: '100% ROASTED ROBUSTA WHOLE BEAN',
+      shortName: '100% Robusta',
+      description: 'Traditional dark-roasted Vietnamese Robusta from Buon Ma Thuot. Monumental body, towering crema, and bold chocolate richness.',
+      shortDescription: '100% select Buon Ma Thuot Robusta: 85% dark cocoa, roasted hazelnut, and dense crema.',
+      flavorNotes: ['85% Dark Chocolate', 'Roasted Hazelnut', 'Molasses', 'Thick Crema'],
+      profile: 'Unapologetic potency, ultra-heavy body, and persistent tiger crema.',
+      region: 'Buon Ma Thuot, Dak Lak',
+      processing: 'Dark Roast for Espresso & Phin',
+      suitableFor: ['Espresso', 'Vietnamese Phin', 'Moka Pot', 'Cold Brew'],
+    },
+    vi: {
+      name: '100% ROBUSTA HẠT RANG MỘC',
+      shortName: 'Robusta 100%',
+      description: 'Cà phê Robusta Buôn Ma Thuột rang mộc độ đậm hoàn hảo. Thể chất dày dặn, lớp kem crema vàng óng và vị đắng đậm đà đúng điệu cà phê Việt.',
+      shortDescription: '100% Robusta Buôn Ma Thuột: sô-cô-la đen 85%, hạt phỉ nướng và lớp crema dày.',
+      flavorNotes: ['Sô-cô-la đen 85%', 'Hạt phỉ nướng', 'Mật mía', 'Crema dày'],
+      profile: 'Thể chất mạnh mẽ, đắng êm quyến rũ và hương thơm nồng ấm.',
+      region: 'Buôn Ma Thuột, Đắk Lắk',
+      processing: 'Rang đậm cho Espresso & Phin',
+      suitableFor: ['Espresso', 'Phin truyền thống', 'Ấm Moka', 'Cold Brew'],
+    },
+  },
+
+  'roasted-robusta-honey': {
+    ru: {
+      name: '100% РОБУСТА ХОНЕЙ ЖАРЕНАЯ',
+      shortName: 'Робуста Хоней 100%',
+      description: 'Премиальная робуста медовой обработки Скрин 18 средней обжарки. Естественная карамелизация клейковины устраняет резкую горечь, придавая бархатистую сладость.',
+      shortDescription: 'Медовая робуста Скрин 18: цветочный мед, тростниковый сахар и какао-бобы.',
+      flavorNotes: ['Цветочный мед', 'Тростниковый сахар', 'Какао-бобы', 'Орех кешью'],
+      profile: 'Выраженная натуральная сладость, шелковистая текстура без едкой горечи.',
+      region: 'Буонметхуот (Скрин 18)',
+      processing: 'Средне-темная обжарка Honey',
+      suitableFor: ['Эспрессо', 'Фин', 'Капучино', 'Колд-брю'],
+    },
+    en: {
+      name: '100% ROASTED ROBUSTA HONEY',
+      shortName: 'Robusta Honey 100%',
+      description: 'Specialty Honey-processed Screen 18 Robusta medium-dark roasted to caramel perfection. Silky mouthfeel with natural sweet honey depth.',
+      shortDescription: 'Honey-process Screen 18 Robusta: wildflower honey, brown sugar, and cacao nibs.',
+      flavorNotes: ['Wildflower Honey', 'Brown Sugar', 'Cacao Nibs', 'Roasted Cashew'],
+      profile: 'Elevated natural sweetness, silky texture, and smooth dessert finish.',
+      region: 'Buon Ma Thuot (Screen 18)',
+      processing: 'Medium-Dark Honey Roast',
+      suitableFor: ['Espresso', 'Vietnamese Phin', 'Cappuccino', 'Cold Brew'],
+    },
+    vi: {
+      name: '100% ROBUSTA HONEY RANG MỘC',
+      shortName: 'Robusta Honey 100%',
+      description: 'Robusta Honey Sàng 18 thượng hạng rang vừa-đậm. Lớp nhớt mật ong được giữ lại khi phơi sấy mang đến vị ngọt sâu và khử hoàn toàn vị chát gắt.',
+      shortDescription: 'Robusta Honey Sàng 18: mật ong hoa rừng, đường nâu và hạt điều nướng.',
+      flavorNotes: ['Mật ong rừng', 'Đường nâu', 'Hạt cacao', 'Hạt điều rang'],
+      profile: 'Độ ngọt tự nhiên êm ái, thể chất mượt mà và thơm hương bơ ngọt.',
+      region: 'Buôn Ma Thuột (Sàng 18)',
+      processing: 'Rang vừa-đậm quy trình Honey',
+      suitableFor: ['Espresso', 'Phin pha sữa', 'Cappuccino', 'Cold Brew'],
+    },
+  },
+
+  'arabica': {
+    ru: {
+      name: '100% АРАБИКА ПРЕМИУМ КАУ ДАТ',
+      shortName: 'Арабика 100%',
+      description: 'Высокогорная арабика из Кау Дат (1 600м) средней европейской обжарки. Идеальный баланс сочной яблочной кислотности, цветов жасмина и молочного шоколада.',
+      shortDescription: '100% арабика Кау Дат: цветы жасмина, бергамот, сладкое яблоко и шоколад.',
+      flavorNotes: ['Жасмин', 'Бергамот', 'Сладкое яблоко', 'Молочный шоколад'],
+      profile: 'Освежающая маликовая кислотность, цветочный шлейф и сладкое шоколадное послевкусие.',
+      region: 'Кау Дат, Далат (1 600м)',
+      processing: 'Средняя обжарка (Medium Roast)',
+      suitableFor: ['V60 / Фильтр', 'Эспрессо', 'Американо', 'Френч-пресс'],
+    },
+    en: {
+      name: '100% ARABICA PREMIUM CAU DAT WHOLE BEAN',
+      shortName: '100% Arabica',
+      description: 'High-altitude Cau Dat Arabica (1,600m) medium roasted for modern specialty espresso and filter extractions.',
+      shortDescription: '100% Cau Dat Arabica: jasmine florals, bergamot citrus, crisp apple, and milk chocolate.',
+      flavorNotes: ['Jasmine Florals', 'Bergamot Citrus', 'Sweet Apple', 'Milk Chocolate'],
+      profile: 'Vibrant malic acidity, perfumed floral nose, and smooth chocolate finish.',
+      region: 'Cau Dat, Da Lat (1,600m)',
+      processing: 'Medium Roast',
+      suitableFor: ['Pour Over / V60', 'Espresso', 'Americano', 'French Press'],
+    },
+    vi: {
+      name: '100% ARABICA CẦU ĐẤT RANG MỘC',
+      shortName: 'Arabica 100%',
+      description: 'Hạt Arabica Cầu Đất độ cao 1.600m rang vừa (Medium Roast). Sự cân bằng tuyệt hảo giữa vị chua thanh trái cây và hậu vị ngọt sô-cô-la sữa.',
+      shortDescription: '100% Arabica Cầu Đất: hoa nhài, cam chanh tươi, táo giòn và sô-cô-la sữa.',
+      flavorNotes: ['Hoa nhài', 'Cam chanh tươi', 'Táo ngọt', 'Sô-cô-la sữa'],
+      profile: 'Độ chua malic thanh tao, hương thơm ngát và thể chất êm dịu.',
+      region: 'Cầu Đất, Đà Lạt (1.600m)',
+      processing: 'Rang vừa chuẩn Specialty',
+      suitableFor: ['V60 / Pour-over', 'Espresso', 'Americano', 'French Press'],
+    },
+  },
+
+  'blend-80-20': {
+    ru: {
+      name: 'ФИРМЕННЫЙ БЛЕНД 80 / 20',
+      shortName: 'Бленд 80 / 20',
+      description: 'Классическая южно-вьетнамская и неаполитанская формула: 80% мощной робусты Буонметхуот и 20% премиальной арабики Кау Дат. Сверхплотная крема и высокая энергичность.',
+      shortDescription: '80% робуста + 20% арабика: темный шоколад, лесной орех и монументальная крема.',
+      flavorNotes: ['Темный шоколад', 'Жареный лесной орех', 'Карамель', 'Плотная крема'],
+      profile: 'Максимальная плотность тела, устойчивая золотисто-ореховая крема и долгое шоколадное послевкусие.',
+      region: 'Буонметхуот и Далат',
+      processing: 'Раздельная обжарка (Split Roasting)',
+      suitableFor: ['Эспрессо', 'Вьетнамский фин', 'Капучино', 'Латте'],
+    },
+    en: {
+      name: 'SIGNATURE BLEND 80 / 20',
+      shortName: 'Blend 80 / 20',
+      description: 'Traditional Southern Vietnamese and Neapolitan espresso formula: 80% bold Robusta and 20% Cau Dat Arabica.',
+      shortDescription: '80% Robusta + 20% Arabica: dark cocoa, toasted hazelnut, and monumental crema.',
+      flavorNotes: ['Dark Cocoa', 'Toasted Hazelnut', 'Caramel', 'Heavy Crema'],
+      profile: 'Maximum extraction density, enduring tiger crema, and lingering chocolate depth.',
+      region: 'Buon Ma Thuot & Da Lat',
+      processing: 'Split Roasting Profile',
+      suitableFor: ['Espresso Bar', 'Vietnamese Phin', 'Cappuccino', 'Latte'],
+    },
+    vi: {
+      name: 'BLEND ĐẶC TRƯNG 80 / 20',
+      shortName: 'Blend 80 / 20',
+      description: 'Công thức espresso truyền thống: 80% Robusta Buôn Ma Thuột và 20% Arabica Cầu Đất. Thể chất cực đậm và lớp crema dày mịn.',
+      shortDescription: '80% Robusta + 20% Arabica: sô-cô-la đen, hạt dẻ nướng và crema dày.',
+      flavorNotes: ['Sô-cô-la đen', 'Hạt phỉ nướng', 'Caramel', 'Crema dày mịn'],
+      profile: 'Thể chất mạnh mẽ đỉnh cao, lớp bọt vàng óng và hậu vị ngọt sâu.',
+      region: 'Buôn Ma Thuột & Đà Lạt',
+      processing: 'Rang tách đôi (Split Roasting)',
+      suitableFor: ['Espresso', 'Phin sữa đá', 'Cappuccino', 'Latte'],
+    },
+  },
+
+  'blend-70-30': {
+    ru: {
+      name: 'ФИРМЕННЫЙ БЛЕНД 70 / 30',
+      shortName: 'Бленд 70 / 30',
+      description: 'Зенит европейского коммерческого бара: 70% отборной робусты (включая Honey-лоты) и 30% арабики Кау Дат. Идеальная основа для молочных напитков (капучино, флэт уайт).',
+      shortDescription: '70% робуста + 30% арабика: какао, пралине, карамель и сливочная пенка.',
+      flavorNotes: ['Какао-пралине', 'Сливочная карамель', 'Фундук', 'Тростниковый сахар'],
+      profile: 'Безупречный баланс крепости и ароматики, шелковистое сочетание со свежим молоком.',
+      region: 'Буонметхуот и Кау Дат',
+      processing: 'Раздельная обжарка (Split Roasting)',
+      suitableFor: ['Капучино', 'Флэт уайт', 'Эспрессо', 'Автоматические кофемашины'],
+    },
+    en: {
+      name: 'SIGNATURE BLEND 70 / 30',
+      shortName: 'Blend 70 / 30',
+      description: 'The golden European commercial bar standard: 70% select Robusta (including Honey lots) and 30% Cau Dat Arabica.',
+      shortDescription: '70% Robusta + 30% Arabica: cacao praline, creamy caramel, and hazelnut.',
+      flavorNotes: ['Cacao Praline', 'Creamy Caramel', 'Hazelnut', 'Raw Sugar'],
+      profile: 'Flawless balance between strength and aromatic sweetness. Superb in milk beverages.',
+      region: 'Buon Ma Thuot & Cau Dat',
+      processing: 'Split Roasting Profile',
+      suitableFor: ['Cappuccino', 'Flat White', 'Espresso Bar', 'Super-Automatic'],
+    },
+    vi: {
+      name: 'BLEND ĐẶC TRƯNG 70 / 30',
+      shortName: 'Blend 70 / 30',
+      description: 'Tỷ lệ vàng cho quán cà phê hiện đại: 70% Robusta tuyển chọn và 30% Arabica Cầu Đất. Hoàn hảo tuyệt đối khi pha chế với sữa tươi.',
+      shortDescription: '70% Robusta + 30% Arabica: cacao praline, caramel béo và hạt phỉ.',
+      flavorNotes: ['Cacao Praline', 'Caramel béo', 'Hạt phỉ', 'Đường mía thô'],
+      profile: 'Cân bằng giữa độ đậm đà và hương thơm nồng ấm, ngọt ngào quyến rũ.',
+      region: 'Buôn Ma Thuột & Cầu Đất',
+      processing: 'Rang tách đôi (Split Roasting)',
+      suitableFor: ['Cappuccino', 'Flat White', 'Espresso', 'Máy pha tự động'],
+    },
+  },
+
+  'blend-50-50': {
+    ru: {
+      name: 'ФИРМЕННЫЙ БЛЕНД 50 / 50 ГАРМОНИЯ',
+      shortName: 'Бленд 50 / 50',
+      description: 'Золотая середина: 50% премиальной арабики Кау Дат и 50% плотной робусты Буонметхуот. Цветочно-шоколадная сложность арабики встречается с бархатистой густотой робусты.',
+      shortDescription: '50% арабика + 50% робуста: идеальная гармония шоколада, спелых ягод и крема.',
+      flavorNotes: ['Шоколадный трюфель', 'Спелые красные ягоды', 'Карамель', 'Грецкий орех'],
+      profile: 'Абсолютная гармония: средняя мягкая кислотность, бархатистое тело и стойкий аромат.',
+      region: 'Кау Дат и Буонметхуот',
+      processing: 'Раздельная обжарка (Split Roasting)',
+      suitableFor: ['Эспрессо', 'Американо', 'Фильтр-кофе', 'Мока'],
+    },
+    en: {
+      name: 'SIGNATURE BLEND 50 / 50 HARMONY',
+      shortName: 'Blend 50 / 50',
+      description: 'The golden half-and-half equilibrium: 50% Cau Dat specialty Arabica and 50% Buon Ma Thuot Robusta.',
+      shortDescription: '50% Arabica + 50% Robusta: chocolate truffle, ripe red berry nuances, and velvety body.',
+      flavorNotes: ['Chocolate Truffle', 'Ripe Red Berries', 'Toffee', 'Walnut'],
+      profile: 'Equilibrium of delicate fruit acidity and rich volcanic Robusta body.',
+      region: 'Cau Dat & Buon Ma Thuot',
+      processing: 'Split Roasting Profile',
+      suitableFor: ['Espresso', 'Americano', 'Drip Filter', 'Moka Pot'],
+    },
+    vi: {
+      name: 'BLEND CÂN BẰNG 50 / 50',
+      shortName: 'Blend 50 / 50',
+      description: 'Sự giao thoa hoàn hảo: 50% Arabica Cầu Đất và 50% Robusta Buôn Ma Thuột. Thích hợp thưởng thức cả ngày cho mọi phong cách pha chế.',
+      shortDescription: '50% Arabica + 50% Robusta: sô-cô-la truffle, quả mọng đỏ và caramel bơ.',
+      flavorNotes: ['Sô-cô-la Truffle', 'Quả mọng đỏ', 'Caramel bơ', 'Hạt óc chó'],
+      profile: 'Cân đối hài hòa giữa độ chua thanh tao của Arabica và thể chất đầm của Robusta.',
+      region: 'Cầu Đất & Buôn Ma Thuột',
+      processing: 'Rang tách đôi (Split Roasting)',
+      suitableFor: ['Espresso', 'Americano', 'Cà phê phin', 'Ấm Moka'],
+    },
+  },
+};
+
+export function getProductTranslation(slug: string, locale: Locale): ProductTranslation | undefined {
+  return PRODUCT_TRANSLATIONS[slug]?.[locale];
+}
+
+export function getLocalizedProduct(product: Product, locale: Locale) {
+  const trans = PRODUCT_TRANSLATIONS[product.slug]?.[locale];
+  if (!trans) {
+    return {
+      ...product,
+      localizedName: product.name,
+      localizedShortName: product.shortName,
+      localizedDescription: product.description,
+      localizedShortDescription: product.shortDescription,
+      localizedFlavorNotes: product.flavorNotes,
+      localizedProfile: product.profile,
+      localizedRegion: product.region,
+      localizedProcessing: product.processing,
+      localizedSuitableFor: product.suitableFor,
+    };
+  }
+
+  return {
+    ...product,
+    localizedName: trans.name || product.name,
+    localizedShortName: trans.shortName || product.shortName,
+    localizedDescription: trans.description || product.description,
+    localizedShortDescription: trans.shortDescription || product.shortDescription,
+    localizedFlavorNotes: trans.flavorNotes || product.flavorNotes,
+    localizedProfile: trans.profile || product.profile,
+    localizedRegion: trans.region || product.region,
+    localizedProcessing: trans.processing || product.processing,
+    localizedSuitableFor: trans.suitableFor || product.suitableFor,
+  };
+}

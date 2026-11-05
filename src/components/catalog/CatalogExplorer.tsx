@@ -4,16 +4,21 @@ import React, { useState, useMemo } from 'react';
 import { Product } from '@/types/product';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { Filter, X, RotateCcw } from 'lucide-react';
+import { Dictionary, Locale } from '@/dictionaries/types';
 
 interface CatalogExplorerProps {
   initialProducts: Product[];
   categoryFilterDefault?: string;
   initialProductQuery?: string;
+  lang?: Locale;
+  dict?: Dictionary['catalog'];
 }
 
 export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
   initialProducts,
   categoryFilterDefault,
+  lang = 'ru',
+  dict,
 }) => {
   // Filters State
   const [selectedType, setSelectedType] = useState<string>('All');
@@ -98,6 +103,21 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
     });
   }, [initialProducts, selectedType, selectedFormat, selectedRoast, selectedBlend, selectedOrigin]);
 
+  // Translation helpers
+  const getTypeLabel = (t: string) => dict?.types?.[t] || t;
+  const getFormatLabel = (f: string) => dict?.formats?.[f] || f;
+  const getRoastLabel = (r: string) => dict?.roasts?.[r] || r;
+  const getOriginLabel = (o: string) => dict?.origins?.[o] || o;
+
+  const filterHeading = dict?.filterType ? 'Фильтры' : 'Filter Selection';
+  const resetText = dict?.resetFilters || 'Reset';
+  const filterTypeHeader = dict?.filterType || 'Coffee Type';
+  const filterFormatHeader = dict?.filterFormat || 'Format';
+  const filterRoastHeader = dict?.filterRoast || 'Roast Level';
+  const filterBlendHeader = dict?.filterBlend || 'Blend Ratio';
+  const filterOriginHeader = dict?.filterOrigin || 'Origin';
+  const noProductsMsg = dict?.noProducts || 'No Matching Lots Found';
+
   return (
     <div className="w-full">
       {/* Mobile Filters Button & Status */}
@@ -107,14 +127,14 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           className="flex items-center gap-2 px-4 py-2.5 bg-[#20150F] text-[#F4EFE7] text-xs uppercase tracking-widest font-semibold border border-[#C7A05A]/30"
         >
           <Filter className="w-3.5 h-3.5 text-[#C7A05A]" />
-          Filters
+          {lang === 'ru' ? 'Фильтры' : lang === 'vi' ? 'Bộ lọc' : 'Filters'}
           {hasActiveFilters && (
             <span className="w-2 h-2 rounded-full bg-[#C7A05A] animate-pulse" />
           )}
         </button>
 
         <span className="text-xs text-stone-500 font-serif">
-          Showing {filteredProducts.length} Lots
+          {filteredProducts.length} {lang === 'ru' ? 'лотов' : lang === 'vi' ? 'sản phẩm' : 'Lots'}
         </span>
       </div>
 
@@ -123,15 +143,15 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
         <aside className="hidden lg:block w-72 flex-shrink-0 space-y-8">
           <div className="flex items-center justify-between pb-4 border-b border-[#3A2418]/10">
             <h3 className="font-serif text-lg text-[#20150F] font-medium tracking-wide">
-              Filter Selection
+              {filterHeading}
             </h3>
             {hasActiveFilters && (
               <button
                 onClick={resetFilters}
-                className="text-[10px] tracking-widest uppercase font-semibold text-[#98733C] hover:text-[#20150F] flex items-center gap-1"
+                className="text-[10px] tracking-widest uppercase font-semibold text-[#98733C] hover:text-[#20150F] flex items-center gap-1 cursor-pointer"
               >
                 <RotateCcw className="w-3 h-3" />
-                Reset
+                {resetText}
               </button>
             )}
           </div>
@@ -139,20 +159,20 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           {/* Coffee Type */}
           <div className="space-y-2.5">
             <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-400 block">
-              Coffee Type
+              {filterTypeHeader}
             </span>
             <div className="space-y-1">
               {coffeeTypes.map((type) => (
                 <button
                   key={type}
                   onClick={() => setSelectedType(type)}
-                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between ${
+                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between cursor-pointer ${
                     selectedType === type
                       ? 'bg-[#20150F] text-[#C7A05A] font-medium'
                       : 'text-stone-700 hover:bg-[#F4EFE7]'
                   }`}
                 >
-                  <span>{type}</span>
+                  <span>{getTypeLabel(type)}</span>
                   {selectedType === type && <span className="text-[10px]">●</span>}
                 </button>
               ))}
@@ -162,20 +182,20 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           {/* Format */}
           <div className="space-y-2.5">
             <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-400 block">
-              Format
+              {filterFormatHeader}
             </span>
             <div className="space-y-1">
               {formats.map((fmt) => (
                 <button
                   key={fmt}
                   onClick={() => setSelectedFormat(fmt)}
-                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between ${
+                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between cursor-pointer ${
                     selectedFormat === fmt
                       ? 'bg-[#20150F] text-[#C7A05A] font-medium'
                       : 'text-stone-700 hover:bg-[#F4EFE7]'
                   }`}
                 >
-                  <span>{fmt}</span>
+                  <span>{getFormatLabel(fmt)}</span>
                   {selectedFormat === fmt && <span className="text-[10px]">●</span>}
                 </button>
               ))}
@@ -185,20 +205,20 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           {/* Roast */}
           <div className="space-y-2.5">
             <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-400 block">
-              Roast Level
+              {filterRoastHeader}
             </span>
             <div className="space-y-1">
               {roasts.map((roast) => (
                 <button
                   key={roast}
                   onClick={() => setSelectedRoast(roast)}
-                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between ${
+                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between cursor-pointer ${
                     selectedRoast === roast
                       ? 'bg-[#20150F] text-[#C7A05A] font-medium'
                       : 'text-stone-700 hover:bg-[#F4EFE7]'
                   }`}
                 >
-                  <span>{roast}</span>
+                  <span>{getRoastLabel(roast)}</span>
                   {selectedRoast === roast && <span className="text-[10px]">●</span>}
                 </button>
               ))}
@@ -208,20 +228,20 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           {/* Blend Ratio */}
           <div className="space-y-2.5">
             <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-400 block">
-              Blend Ratio (Arabica / Robusta)
+              {filterBlendHeader}
             </span>
             <div className="space-y-1">
               {blendRatios.map((ratio) => (
                 <button
                   key={ratio}
                   onClick={() => setSelectedBlend(ratio)}
-                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between ${
+                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between cursor-pointer ${
                     selectedBlend === ratio
                       ? 'bg-[#20150F] text-[#C7A05A] font-medium'
                       : 'text-stone-700 hover:bg-[#F4EFE7]'
                   }`}
                 >
-                  <span>{ratio}</span>
+                  <span>{ratio === 'All' ? (dict?.filterAll || 'All') : ratio}</span>
                   {selectedBlend === ratio && <span className="text-[10px]">●</span>}
                 </button>
               ))}
@@ -231,20 +251,20 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           {/* Origin */}
           <div className="space-y-2.5">
             <span className="text-[10px] tracking-[0.2em] uppercase font-semibold text-stone-400 block">
-              Origin
+              {filterOriginHeader}
             </span>
             <div className="space-y-1">
               {origins.map((orig) => (
                 <button
                   key={orig}
                   onClick={() => setSelectedOrigin(orig)}
-                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between ${
+                  className={`w-full text-left text-xs py-1 px-2 rounded transition-colors flex items-center justify-between cursor-pointer ${
                     selectedOrigin === orig
                       ? 'bg-[#20150F] text-[#C7A05A] font-medium'
                       : 'text-stone-700 hover:bg-[#F4EFE7]'
                   }`}
                 >
-                  <span>{orig}</span>
+                  <span>{getOriginLabel(orig)}</span>
                   {selectedOrigin === orig && <span className="text-[10px]">●</span>}
                 </button>
               ))}
@@ -257,69 +277,81 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           {/* Active filter pills summary */}
           <div className="hidden lg:flex items-center justify-between pb-6 mb-6 border-b border-[#3A2418]/10 text-xs">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-stone-400 uppercase tracking-widest text-[10px]">Active Filters:</span>
-              {!hasActiveFilters && <span className="text-stone-500 italic">Showing full collection</span>}
+              <span className="text-stone-400 uppercase tracking-widest text-[10px]">
+                {lang === 'ru' ? 'Активные фильтры:' : lang === 'vi' ? 'Bộ lọc áp dụng:' : 'Active Filters:'}
+              </span>
+              {!hasActiveFilters && (
+                <span className="text-stone-500 italic">
+                  {lang === 'ru' ? 'Все лоты коллекции' : lang === 'vi' ? 'Tất cả sản phẩm' : 'Showing full collection'}
+                </span>
+              )}
               {selectedType !== 'All' && (
                 <span className="px-2.5 py-1 bg-[#20150F] text-[#C7A05A] text-[10px] uppercase tracking-wider flex items-center gap-1.5">
-                  Type: {selectedType}
+                  {filterTypeHeader}: {getTypeLabel(selectedType)}
                   <X className="w-3 h-3 cursor-pointer hover:text-white" onClick={() => setSelectedType('All')} />
                 </span>
               )}
               {selectedFormat !== 'All' && (
                 <span className="px-2.5 py-1 bg-[#20150F] text-[#C7A05A] text-[10px] uppercase tracking-wider flex items-center gap-1.5">
-                  Format: {selectedFormat}
+                  {filterFormatHeader}: {getFormatLabel(selectedFormat)}
                   <X className="w-3 h-3 cursor-pointer hover:text-white" onClick={() => setSelectedFormat('All')} />
                 </span>
               )}
               {selectedRoast !== 'All' && (
                 <span className="px-2.5 py-1 bg-[#20150F] text-[#C7A05A] text-[10px] uppercase tracking-wider flex items-center gap-1.5">
-                  Roast: {selectedRoast}
+                  {filterRoastHeader}: {getRoastLabel(selectedRoast)}
                   <X className="w-3 h-3 cursor-pointer hover:text-white" onClick={() => setSelectedRoast('All')} />
                 </span>
               )}
               {selectedBlend !== 'All' && (
                 <span className="px-2.5 py-1 bg-[#20150F] text-[#C7A05A] text-[10px] uppercase tracking-wider flex items-center gap-1.5">
-                  Ratio: {selectedBlend}
+                  {filterBlendHeader}: {selectedBlend}
                   <X className="w-3 h-3 cursor-pointer hover:text-white" onClick={() => setSelectedBlend('All')} />
                 </span>
               )}
             </div>
 
             <span className="text-stone-500 font-serif">
-              {filteredProducts.length} {filteredProducts.length === 1 ? 'Product' : 'Products'} Found
+              {filteredProducts.length} {lang === 'ru' ? 'лотов найдено' : lang === 'vi' ? 'sản phẩm' : 'Products Found'}
             </span>
           </div>
 
           {/* Catalog Cards Grid */}
           {filteredProducts.length === 0 ? (
             <div className="py-20 text-center bg-white border border-[#3A2418]/10 p-8">
-              <h3 className="font-serif text-xl text-[#20150F] mb-2">No Matching Lots Found</h3>
+              <h3 className="font-serif text-xl text-[#20150F] mb-2">{noProductsMsg}</h3>
               <p className="text-xs text-stone-500 max-w-sm mx-auto mb-6">
-                Adjust your filter criteria or reset to view our full export range of Arabica, Robusta, and Blends.
+                {lang === 'ru'
+                  ? 'Попробуйте изменить параметры поиска или сбросить фильтры для просмотра всей экспортной линейки.'
+                  : lang === 'vi'
+                  ? 'Vui lòng điều chỉnh lại bộ lọc để xem toàn bộ danh mục cà phê xuất khẩu của chúng tôi.'
+                  : 'Adjust your filter criteria or reset to view our full export range of Arabica, Robusta, and Blends.'}
               </p>
               <button
                 onClick={resetFilters}
-                className="px-6 py-2 bg-[#20150F] text-[#C7A05A] text-xs uppercase tracking-widest hover:bg-[#3A2418] transition-colors"
+                className="px-6 py-2 bg-[#20150F] text-[#C7A05A] text-xs uppercase tracking-widest hover:bg-[#3A2418] transition-colors cursor-pointer"
               >
-                Reset Filters
+                {resetText}
               </button>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
               {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} lang={lang} dict={dict} />
               ))}
             </div>
           )}
         </main>
       </div>
 
-      {/* Mobile Drawer Filter (Bottom Sheet / Drawer) */}
+      {/* Mobile Drawer Filter */}
       {isMobileDrawerOpen && (
         <div className="fixed inset-0 z-50 lg:hidden flex flex-col justify-end bg-black/60 backdrop-blur-sm">
           <div className="bg-[#FAF7F2] rounded-t-2xl max-h-[85vh] overflow-y-auto p-6 space-y-6 border-t border-[#C7A05A]">
             <div className="flex items-center justify-between pb-3 border-b border-[#3A2418]/15">
-              <h3 className="font-serif text-xl text-[#20150F]">Filter Catalogue</h3>
+              <h3 className="font-serif text-xl text-[#20150F]">
+                {lang === 'ru' ? 'Фильтры каталога' : lang === 'vi' ? 'Bộ lọc danh mục' : 'Filter Catalogue'}
+              </h3>
               <button
                 onClick={() => setIsMobileDrawerOpen(false)}
                 className="p-1 text-stone-500 hover:text-black"
@@ -332,7 +364,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
             {/* Coffee Type */}
             <div>
               <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block mb-2">
-                Coffee Type
+                {filterTypeHeader}
               </span>
               <div className="grid grid-cols-2 gap-2">
                 {coffeeTypes.map((t) => (
@@ -345,7 +377,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
                         : 'bg-white text-stone-700 border-stone-300'
                     }`}
                   >
-                    {t}
+                    {getTypeLabel(t)}
                   </button>
                 ))}
               </div>
@@ -354,7 +386,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
             {/* Format */}
             <div>
               <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block mb-2">
-                Format
+                {filterFormatHeader}
               </span>
               <div className="grid grid-cols-2 gap-2">
                 {formats.map((fmt) => (
@@ -367,7 +399,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
                         : 'bg-white text-stone-700 border-stone-300'
                     }`}
                   >
-                    {fmt}
+                    {getFormatLabel(fmt)}
                   </button>
                 ))}
               </div>
@@ -376,7 +408,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
             {/* Blend */}
             <div>
               <span className="text-[10px] tracking-widest uppercase font-semibold text-stone-500 block mb-2">
-                Blend Ratio
+                {filterBlendHeader}
               </span>
               <div className="grid grid-cols-2 gap-2">
                 {blendRatios.map((ratio) => (
@@ -389,7 +421,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
                         : 'bg-white text-stone-700 border-stone-300'
                     }`}
                   >
-                    {ratio}
+                    {ratio === 'All' ? (dict?.filterAll || 'All') : ratio}
                   </button>
                 ))}
               </div>
@@ -401,13 +433,13 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
                 onClick={resetFilters}
                 className="flex-1 py-3 text-xs uppercase tracking-widest border border-stone-400 text-stone-700"
               >
-                Reset
+                {resetText}
               </button>
               <button
                 onClick={() => setIsMobileDrawerOpen(false)}
                 className="flex-1 py-3 text-xs uppercase tracking-widest bg-[#20150F] text-[#C7A05A] font-semibold"
               >
-                Show ({filteredProducts.length})
+                {lang === 'ru' ? `Показать (${filteredProducts.length})` : lang === 'vi' ? `Xem (${filteredProducts.length})` : `Show (${filteredProducts.length})`}
               </button>
             </div>
           </div>

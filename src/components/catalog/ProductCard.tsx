@@ -3,19 +3,35 @@ import Link from 'next/link';
 import { Product } from '@/types/product';
 import { RoastIndicator } from '@/components/product/RoastIndicator';
 import { CoffeePlaceholder } from '@/components/product/CoffeePlaceholder';
+import { Dictionary, Locale } from '@/dictionaries/types';
+import { getProductTranslation } from '@/data/productTranslations';
 
 interface ProductCardProps {
   product: Product;
+  lang?: Locale;
+  dict?: Dictionary['catalog'];
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  lang = 'ru',
+  dict,
+}) => {
   const isGreen = product.category === 'Green Coffee';
-  const detailHref = isGreen ? `/green-coffee/${product.slug}` : `/coffee/${product.slug}`;
-  const quoteHref = `/coffee?product=${product.slug}#quote-section`;
+  const detailHref = isGreen ? `/${lang}/green-coffee/${product.slug}` : `/${lang}/coffee/${product.slug}`;
+  const quoteHref = `/${lang}/coffee?product=${product.slug}#quote-section`;
 
-  // Display name is product.name
-  // Clean country label (display Vietnam cleanly as label)
-  const originLabel = product.origin || 'Vietnam';
+  const trans = getProductTranslation(product.slug, lang);
+  const displayName = trans?.name || product.name;
+  const displayOrigin = trans?.origin || product.origin || (lang === 'ru' ? 'Вьетнам' : lang === 'vi' ? 'Việt Nam' : 'Vietnam');
+  const displayCategory = trans?.category || product.category;
+  const displayNotes = trans?.flavorNotes || product.flavorNotes;
+
+  const viewDetailsText = dict?.viewDetails || (lang === 'ru' ? 'Подробнее' : lang === 'vi' ? 'Xem chi tiết' : 'View Details');
+  const requestPriceText = dict?.requestPrice || (lang === 'ru' ? 'Запросить цену' : lang === 'vi' ? 'Yêu cầu giá' : 'Request Price');
+
+  const arabicaLabel = lang === 'ru' ? 'Арабика' : 'Arabica';
+  const robustaLabel = lang === 'ru' ? 'Робуста' : 'Robusta';
 
   return (
     <article className="group relative flex flex-col h-full bg-white border border-[#3A2418]/10 hover:border-[#C7A05A]/60 transition-all duration-300 shadow-sm hover:shadow-lg overflow-hidden">
@@ -38,20 +54,20 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       {/* Card Content — Fixed rhythm and synchronized heights */}
       <div className="flex-1 flex flex-col p-5 bg-[#FCFAF7] group-hover:bg-white transition-colors duration-300">
         
-        {/* Country Label (Vietnam) + Category */}
+        {/* Country Label + Category */}
         <div className="flex items-center justify-between gap-2 mb-1.5">
           <span className="text-[10px] uppercase tracking-[0.25em] font-medium text-[#C7A05A]">
-            {originLabel}
+            {displayOrigin}
           </span>
           <span className="text-[9px] uppercase tracking-wider text-stone-400 font-mono">
-            {product.category}
+            {displayCategory}
           </span>
         </div>
 
         {/* Short, Clean Main Title with fixed min-height for uniform alignment */}
         <h3 className="font-serif text-base sm:text-lg text-[#20150F] font-medium leading-snug group-hover:text-[#98733C] transition-colors duration-200 min-h-[2.8rem] flex items-center">
           <Link href={detailHref} className="line-clamp-2">
-            {product.name}
+            {displayName}
           </Link>
         </h3>
 
@@ -59,7 +75,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="mt-2 min-h-[1.5rem] flex items-center">
           {product.coffeeType === 'Blend' ? (
             <span className="font-mono text-[11px] text-[#3A2418] bg-[#F4EFE7] px-2 py-0.5 rounded border border-[#3A2418]/10">
-              {product.arabica}% Arabica • {product.robusta}% Robusta
+              {product.arabica}% {arabicaLabel} • {product.robusta}% {robustaLabel}
             </span>
           ) : product.roast && product.roast !== 'Unroasted' ? (
             <RoastIndicator roast={product.roast} />
@@ -72,7 +88,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
         {/* Sensory Notes */}
         <p className="mt-2.5 text-xs text-stone-600 line-clamp-1 italic font-serif">
-          {product.flavorNotes.join(' • ')}
+          {displayNotes.join(' • ')}
         </p>
 
         {/* Synchronized Actions CTA locked to bottom */}
@@ -81,7 +97,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             href={detailHref}
             className="text-[11px] uppercase tracking-widest font-medium text-[#20150F] hover:text-[#98733C] transition-colors flex items-center gap-1"
           >
-            View Details
+            {viewDetailsText}
             <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
 
@@ -89,7 +105,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             href={quoteHref}
             className="px-3 py-1.5 bg-[#20150F] hover:bg-[#3A2418] text-[#F4EFE7] text-[10px] tracking-widest uppercase font-medium transition-all duration-300 border border-[#C7A05A]/30 hover:border-[#C7A05A]"
           >
-            Request Price
+            {requestPriceText}
           </Link>
         </div>
       </div>

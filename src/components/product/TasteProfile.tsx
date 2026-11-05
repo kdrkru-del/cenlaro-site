@@ -1,4 +1,5 @@
 import React from 'react';
+import { Locale } from '@/dictionaries/types';
 
 interface TasteProfileProps {
   body: number; // 1-5
@@ -7,6 +8,14 @@ interface TasteProfileProps {
   bitterness: number; // 1-5
   intensity: number; // 1-5
   compact?: boolean;
+  lang?: Locale;
+  labels?: {
+    intensity?: string;
+    body?: string;
+    acidity?: string;
+    sweetness?: string;
+    bitterness?: string;
+  };
 }
 
 export const TasteProfile: React.FC<TasteProfileProps> = ({
@@ -16,20 +25,48 @@ export const TasteProfile: React.FC<TasteProfileProps> = ({
   bitterness,
   intensity,
   compact = false,
+  lang = 'ru',
+  labels,
 }) => {
+  const defaultLabels = {
+    ru: {
+      intensity: 'Интенсивность',
+      body: 'Тело / Плотность',
+      acidity: 'Кислотность',
+      sweetness: 'Сладость',
+      bitterness: 'Горчинка',
+    },
+    en: {
+      intensity: 'Intensity',
+      body: 'Body',
+      acidity: 'Acidity',
+      sweetness: 'Sweetness',
+      bitterness: 'Bitterness',
+    },
+    vi: {
+      intensity: 'Độ đậm đà',
+      body: 'Thể chất (Body)',
+      acidity: 'Độ chua (Acidity)',
+      sweetness: 'Độ ngọt (Sweetness)',
+      bitterness: 'Vị đắng (Bitterness)',
+    },
+  };
+
+  const currentLabels = labels || defaultLabels[lang] || defaultLabels.ru;
+
   const metrics = [
-    { label: 'Intensity', value: intensity },
-    { label: 'Body', value: body },
-    { label: 'Acidity', value: acidity },
-    { label: 'Sweetness', value: sweetness },
-    { label: 'Bitterness', value: bitterness },
+    { label: currentLabels.intensity || 'Intensity', value: intensity },
+    { label: currentLabels.body || 'Body', value: body },
+    { label: currentLabels.acidity || 'Acidity', value: acidity },
+    { label: currentLabels.sweetness || 'Sweetness', value: sweetness },
+    { label: currentLabels.bitterness || 'Bitterness', value: bitterness },
   ];
 
   return (
     <div className={`w-full ${compact ? 'space-y-2' : 'space-y-3.5'}`}>
       {metrics.map(({ label, value }) => (
         <div key={label} className="flex items-center justify-between text-xs tracking-wider">
-          <span className="w-24 uppercase font-medium text-stone-600 text-[11px] tracking-widest">{label}</span>
+          <span className="w-28 uppercase font-medium text-stone-600 text-[11px] tracking-widest">{label}</span>
           <div className="flex-1 max-w-[200px] flex items-center justify-between px-2 gap-1.5">
             {[1, 2, 3, 4, 5].map((step) => {
               const isActive = step <= value;
