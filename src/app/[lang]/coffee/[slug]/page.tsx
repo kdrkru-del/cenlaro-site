@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const desc = trans?.shortDescription || product.shortDescription;
 
   return {
-    title: `${title} | CENLARO`,
+    title,
     description: desc,
     alternates: {
       canonical: `https://cenlaro.com/${validLang}/coffee/${product.slug}`,
@@ -179,7 +179,7 @@ export default async function LocalizedProductDetailPage({ params }: ProductPage
 
                 {/* Roast Indicator */}
                 <div className="mb-6 flex items-center gap-4">
-                  <RoastIndicator roast={product.roast} />
+                  <RoastIndicator roast={product.roast} lang={validLang} />
                 </div>
 
                 {/* Short Description */}
@@ -279,55 +279,55 @@ export default async function LocalizedProductDetailPage({ params }: ProductPage
               </h3>
 
               <div className="divide-y divide-[#3A2418]/10 text-xs">
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{dict.productDetail.origin}</span>
-                  <span className="font-medium text-[#20150F]">{displayOrigin}</span>
+                  <span className="font-medium text-[#20150F] text-right">{displayOrigin}</span>
                 </div>
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{dict.productDetail.region}</span>
-                  <span className="font-medium text-[#20150F]">{product.region}</span>
+                  <span className="font-medium text-[#20150F] text-right">{product.region}</span>
                 </div>
                 {product.processing && (
-                  <div className="py-2.5 flex justify-between">
+                  <div className="py-2.5 flex items-center justify-between gap-4">
                     <span className="text-stone-500">{dict.productDetail.processing}</span>
-                    <span className="font-medium text-[#20150F]">{product.processing}</span>
+                    <span className="font-medium text-[#20150F] text-right">{product.processing}</span>
                   </div>
                 )}
                 {product.screen && (
-                  <div className="py-2.5 flex justify-between">
+                  <div className="py-2.5 flex items-center justify-between gap-4">
                     <span className="text-stone-500">{dict.productDetail.screen}</span>
-                    <span className="font-medium text-[#20150F]">{product.screen}</span>
+                    <span className="font-medium text-[#20150F] text-right">{product.screen}</span>
                   </div>
                 )}
                 {product.moisture && (
-                  <div className="py-2.5 flex justify-between">
+                  <div className="py-2.5 flex items-center justify-between gap-4">
                     <span className="text-stone-500">{dict.productDetail.moisture}</span>
-                    <span className="font-medium text-[#20150F]">{product.moisture}</span>
+                    <span className="font-medium text-[#20150F] text-right">{product.moisture}</span>
                   </div>
                 )}
                 {product.crop && (
-                  <div className="py-2.5 flex justify-between">
+                  <div className="py-2.5 flex items-center justify-between gap-4">
                     <span className="text-stone-500">{dict.productDetail.crop}</span>
-                    <span className="font-medium text-[#20150F]">{product.crop}</span>
+                    <span className="font-medium text-[#20150F] text-right">{product.crop}</span>
                   </div>
                 )}
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{dict.productDetail.format}</span>
-                  <span className="font-medium text-[#20150F]">{product.format} {product.grind ? `(${product.grind})` : ''}</span>
+                  <span className="font-medium text-[#20150F] text-right">{product.format} {product.grind ? `(${product.grind})` : ''}</span>
                 </div>
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{dict.productDetail.moq}</span>
-                  <span className="font-medium text-[#20150F]">{product.MOQ}</span>
+                  <span className="font-medium text-[#20150F] text-right">{product.MOQ}</span>
                 </div>
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{validLang === 'ru' ? 'Доступность к опту' : validLang === 'vi' ? 'Khả năng cung ứng' : 'Wholesale Availability'}</span>
-                  <span className="font-medium text-[#44523B] flex items-center gap-1">
+                  <span className="font-medium text-[#44523B] flex items-center gap-1 text-right flex-shrink-0">
                     <Check className="w-3.5 h-3.5" /> {validLang === 'ru' ? 'В наличии под контейнер / паллеты' : validLang === 'vi' ? 'Sẵn sàng giao container / pallet' : 'Available for Container/Pallet'}
                   </span>
                 </div>
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{validLang === 'ru' ? 'Контрактное производство СТМ' : validLang === 'vi' ? 'Sản xuất OEM thương hiệu riêng' : 'Private Label / OEM'}</span>
-                  <span className="font-medium text-[#C7A05A] flex items-center gap-1">
+                  <span className="font-medium text-[#C7A05A] flex items-center gap-1 text-right flex-shrink-0">
                     <Check className="w-3.5 h-3.5" /> {validLang === 'ru' ? 'Поддерживается в брендированной упаковке' : validLang === 'vi' ? 'Hỗ trợ bao bì riêng' : 'Supported with Custom Packaging'}
                   </span>
                 </div>

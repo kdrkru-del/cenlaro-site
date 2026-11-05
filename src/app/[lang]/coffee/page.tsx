@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const dict = getDictionary(validLang);
 
   return {
-    title: `${dict.catalog.title} | CENLARO`,
+    title: dict.catalog.title,
     description: dict.catalog.subtitle,
     alternates: {
       canonical: `https://cenlaro.com/${validLang}/coffee`,

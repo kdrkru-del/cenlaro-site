@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: GreenProductPageProps): Promi
   const desc = trans?.shortDescription || product.shortDescription;
 
   return {
-    title: `${title} | Direct Vietnam Export | CENLARO`,
+    title: `${title} | Direct Vietnam Export`,
     description: desc,
     alternates: {
       canonical: `https://cenlaro.com/${validLang}/green-coffee/${product.slug}`,
@@ -189,47 +189,47 @@ export default async function LocalizedGreenProductDetailPage({ params }: GreenP
             </h3>
 
             <div className="divide-y divide-[#3A2418]/10 text-xs">
-              <div className="py-2.5 flex justify-between">
+              <div className="py-2.5 flex items-center justify-between gap-4">
                 <span className="text-stone-500">{dict.productDetail.origin}</span>
-                <span className="font-medium text-[#20150F]">{displayOrigin}</span>
+                <span className="font-medium text-[#20150F] text-right">{displayOrigin}</span>
               </div>
-              <div className="py-2.5 flex justify-between">
+              <div className="py-2.5 flex items-center justify-between gap-4">
                 <span className="text-stone-500">{dict.productDetail.region}</span>
-                <span className="font-medium text-[#20150F]">{product.region}</span>
+                <span className="font-medium text-[#20150F] text-right">{product.region}</span>
               </div>
               {product.screen && (
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{dict.productDetail.screen}</span>
-                  <span className="font-medium text-[#20150F]">{product.screen}</span>
+                  <span className="font-medium text-[#20150F] text-right">{product.screen}</span>
                 </div>
               )}
               {product.grade && (
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{dict.productDetail.grade}</span>
-                  <span className="font-medium text-[#20150F]">{product.grade}</span>
+                  <span className="font-medium text-[#20150F] text-right">{product.grade}</span>
                 </div>
               )}
               {product.moisture && (
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{dict.productDetail.moisture}</span>
-                  <span className="font-medium text-[#20150F]">{product.moisture}</span>
+                  <span className="font-medium text-[#20150F] text-right">{product.moisture}</span>
                 </div>
               )}
               {product.processing && (
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{dict.productDetail.processing}</span>
-                  <span className="font-medium text-[#20150F]">{product.processing}</span>
+                  <span className="font-medium text-[#20150F] text-right">{product.processing}</span>
                 </div>
               )}
               {product.crop && (
-                <div className="py-2.5 flex justify-between">
+                <div className="py-2.5 flex items-center justify-between gap-4">
                   <span className="text-stone-500">{dict.productDetail.crop}</span>
-                  <span className="font-medium text-[#20150F]">{product.crop}</span>
+                  <span className="font-medium text-[#20150F] text-right">{product.crop}</span>
                 </div>
               )}
-              <div className="py-2.5 flex justify-between">
+              <div className="py-2.5 flex items-center justify-between gap-4">
                 <span className="text-stone-500">{dict.productDetail.packaging}</span>
-                <span className="font-medium text-[#20150F]">{product.packaging.join(' / ')}</span>
+                <span className="font-medium text-[#20150F] text-right">{product.packaging.join(' / ')}</span>
               </div>
             </div>
           </div>

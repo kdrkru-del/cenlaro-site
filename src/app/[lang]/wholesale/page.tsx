@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const dict = getDictionary(validLang);
 
   return {
-    title: `${dict.wholesale.heroTitle} | CENLARO`,
+    title: dict.wholesale.heroTitle,
     description: dict.wholesale.heroSubtitle,
     alternates: {
       canonical: `https://cenlaro.com/${validLang}/wholesale`,
@@ -147,7 +147,13 @@ export default async function LocalizedWholesalePage({ params }: PageProps) {
           dict={dict.quoteForm}
           lang={validLang}
           initialProductSlug="wholesale-inquiry"
-          initialProductName="B2B Wholesale & Container Allocation Inquiry"
+          initialProductName={
+            validLang === 'ru'
+              ? 'Оптовые поставки и контейнерные партии'
+              : validLang === 'vi'
+              ? 'Yêu cầu báo giá bán sỉ & container'
+              : 'B2B Wholesale & Container Allocation Inquiry'
+          }
         />
       </section>
     </div>

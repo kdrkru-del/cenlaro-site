@@ -152,6 +152,14 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({
               </div>
             )}
 
+            {/* Selected Product Pill if specific lot */}
+            {initialProductName && (
+              <div className="bg-[#180F0B] border border-[#C7A05A]/30 px-3.5 py-2 text-xs flex items-center justify-between text-stone-300 rounded-sm">
+                <span className="text-[10px] uppercase tracking-wider text-[#C7A05A] font-medium">{dict.productLabel}:</span>
+                <span className="font-serif font-medium text-white truncate max-w-[280px]">{initialProductName}</span>
+              </div>
+            )}
+
             {/* Field 1: Name */}
             <div>
               <label className="block text-[11px] uppercase tracking-widest text-stone-300 mb-2 font-medium">

@@ -31,7 +31,7 @@ export const TasteProfile: React.FC<TasteProfileProps> = ({
   const defaultLabels = {
     ru: {
       intensity: 'Интенсивность',
-      body: 'Тело / Плотность',
+      body: 'Плотность тела',
       acidity: 'Кислотность',
       sweetness: 'Сладость',
       bitterness: 'Горчинка',
@@ -44,11 +44,11 @@ export const TasteProfile: React.FC<TasteProfileProps> = ({
       bitterness: 'Bitterness',
     },
     vi: {
-      intensity: 'Độ đậm đà',
-      body: 'Thể chất (Body)',
-      acidity: 'Độ chua (Acidity)',
-      sweetness: 'Độ ngọt (Sweetness)',
-      bitterness: 'Vị đắng (Bitterness)',
+      intensity: 'Độ đậm',
+      body: 'Thể chất',
+      acidity: 'Độ chua',
+      sweetness: 'Độ ngọt',
+      bitterness: 'Vị đắng',
     },
   };
 
@@ -66,7 +66,7 @@ export const TasteProfile: React.FC<TasteProfileProps> = ({
     <div className={`w-full ${compact ? 'space-y-2' : 'space-y-3.5'}`}>
       {metrics.map(({ label, value }) => (
         <div key={label} className="flex items-center justify-between text-xs tracking-wider">
-          <span className="w-28 uppercase font-medium text-stone-600 text-[11px] tracking-widest">{label}</span>
+          <span className="min-w-[105px] sm:min-w-[125px] uppercase font-medium text-stone-600 text-[10.5px] sm:text-[11px] tracking-wider whitespace-nowrap">{label}</span>
           <div className="flex-1 max-w-[200px] flex items-center justify-between px-2 gap-1.5">
             {[1, 2, 3, 4, 5].map((step) => {
               const isActive = step <= value;

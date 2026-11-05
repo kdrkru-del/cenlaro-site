@@ -26,6 +26,11 @@ export default async function LangLayout({
 
   return (
     <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.lang="${validLang}";`,
+        }}
+      />
       <Header lang={validLang} dict={dict.nav} />
       <main className="flex-1">{children}</main>
       <Footer lang={validLang} dict={dict.footer} />

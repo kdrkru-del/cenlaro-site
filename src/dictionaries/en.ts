@@ -59,7 +59,7 @@ export const en: Dictionary = {
     nameLabel: 'Your Name *',
     namePlaceholder: 'Full name or contact person',
     phoneLabel: 'Phone / WhatsApp / Email *',
-    phonePlaceholder: '+1 (___) ___-____',
+    phonePlaceholder: '+1 / +44 / +84 (WhatsApp / Phone)',
     productLabel: 'Product / Lot of Interest',
     generalInquiry: 'General Wholesale Price List Request',
     submitBtn: 'Get Quotation',

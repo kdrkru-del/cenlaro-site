@@ -78,7 +78,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               {product.arabica}% {arabicaLabel} • {product.robusta}% {robustaLabel}
             </span>
           ) : product.roast && product.roast !== 'Unroasted' ? (
-            <RoastIndicator roast={product.roast} />
+            <RoastIndicator roast={product.roast} lang={lang} />
           ) : (
             <span className="text-[11px] text-stone-500 font-mono">
               {product.coffeeType} • {product.format}

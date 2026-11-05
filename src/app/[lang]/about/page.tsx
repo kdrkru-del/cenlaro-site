@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const dict = getDictionary(validLang);
 
   return {
-    title: `${dict.about.heroTitle} | CENLARO`,
+    title: dict.about.heroTitle.replace('\n', ' '),
     description: dict.about.heroSubtitle,
     alternates: {
       canonical: `https://cenlaro.com/${validLang}/about`,
@@ -106,7 +106,7 @@ export default async function LocalizedAboutPage({ params }: PageProps) {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block mb-2">
-              Verification Methodology
+              {validLang === 'ru' ? 'Методология контроля' : validLang === 'vi' ? 'Quy trình kiểm soát' : 'Verification Methodology'}
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#20150F] font-normal">
               {dict.about.timelineTitle}
@@ -147,7 +147,13 @@ export default async function LocalizedAboutPage({ params }: PageProps) {
           dict={dict.quoteForm}
           lang={validLang}
           initialProductSlug="corporate-inquiry"
-          initialProductName="CENLARO Corporate Sourcing Partnership Inquiry"
+          initialProductName={
+            validLang === 'ru'
+              ? 'Партнерство и экспортные поставки кофе CENLARO'
+              : validLang === 'vi'
+              ? 'Hợp tác xuất khẩu cà phê CENLARO'
+              : 'CENLARO Corporate Sourcing Partnership Inquiry'
+          }
         />
       </section>
     </div>

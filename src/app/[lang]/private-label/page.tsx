@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const dict = getDictionary(validLang);
 
   return {
-    title: `${dict.privateLabel.heroTitle} | CENLARO`,
+    title: dict.privateLabel.heroTitle,
     description: dict.privateLabel.heroSubtitle,
     alternates: {
       canonical: `https://cenlaro.com/${validLang}/private-label`,
@@ -150,7 +150,13 @@ export default async function LocalizedPrivateLabelPage({ params }: PageProps) {
           dict={dict.quoteForm}
           lang={validLang}
           initialProductSlug="private-label-oem"
-          initialProductName="Private Label & OEM Project Inquiry"
+          initialProductName={
+            validLang === 'ru'
+              ? 'Контрактное производство и Private Label (OEM)'
+              : validLang === 'vi'
+              ? 'Gia công thương hiệu riêng & OEM'
+              : 'Private Label & OEM Project Inquiry'
+          }
         />
       </section>
     </div>

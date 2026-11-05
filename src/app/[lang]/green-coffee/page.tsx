@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const dict = getDictionary(validLang);
 
   return {
-    title: `${dict.catalog.greenTitle} | CENLARO`,
+    title: dict.catalog.greenTitle,
     description: dict.catalog.greenSubtitle,
     alternates: {
       canonical: `https://cenlaro.com/${validLang}/green-coffee`,
@@ -179,7 +179,13 @@ export default async function LocalizedGreenCoffeePage({ params }: PageProps) {
           dict={dict.quoteForm}
           lang={validLang}
           initialProductSlug="green-coffee-fcl"
-          initialProductName="Vietnam Green Coffee FCL Container Allocation"
+          initialProductName={
+            validLang === 'ru'
+              ? 'Зеленый кофе из Вьетнама (FCL контейнерная партия)'
+              : validLang === 'vi'
+              ? 'Cà phê nhân xuất khẩu (Container FCL)'
+              : 'Vietnam Green Coffee FCL Container Allocation'
+          }
         />
       </section>
     </div>

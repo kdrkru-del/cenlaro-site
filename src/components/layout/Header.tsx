@@ -61,7 +61,7 @@ export const Header: React.FC<HeaderProps> = ({
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 text-[11px] tracking-[0.2em] uppercase font-medium">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-7 text-[10.5px] xl:text-[11px] tracking-[0.14em] xl:tracking-[0.2em] uppercase font-medium whitespace-nowrap">
           <Link
             href={`/${lang}/coffee`}
             className="text-stone-300 hover:text-[#C7A05A] transition-colors py-1"
@@ -95,7 +95,7 @@ export const Header: React.FC<HeaderProps> = ({
         </nav>
 
         {/* Right side controls: Language switcher & CTA */}
-        <div className="hidden lg:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-5 whitespace-nowrap flex-shrink-0">
           {/* Language Switcher with URL-based routing (RU / EN / VI) */}
           <div className="flex items-center gap-1.5 text-[10px] tracking-wider border border-[#3A2418] px-2 py-1 bg-[#180F0B]">
             <Globe className="w-3 h-3 text-[#C7A05A]" />
