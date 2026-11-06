@@ -99,6 +99,38 @@ export interface Dictionary {
       oemDesc: string;
       oemLink: string;
     };
+    varieties: {
+      badge: string;
+      title: string;
+      subtitle: string;
+      arabica: {
+        badge: string;
+        title: string;
+        origin: string;
+        desc: string;
+        notesTitle: string;
+        notes: string[];
+        character: string;
+        link: string;
+      };
+      robusta: {
+        badge: string;
+        title: string;
+        origin: string;
+        desc: string;
+        notesTitle: string;
+        notes: string[];
+        character: string;
+        link: string;
+      };
+      blendHarmony: {
+        badge: string;
+        title: string;
+        desc: string;
+        link: string;
+        items: { ratio: string; title: string; note: string }[];
+      };
+    };
     featured: {
       title: string;
       viewAll: string;

@@ -4,7 +4,7 @@ import { CenlaroLogo } from '@/components/ui/CenlaroLogo';
 import { getFeaturedProducts } from '@/data/products';
 import { ProductCard } from '@/components/catalog/ProductCard';
 import { QuoteForm } from '@/components/forms/QuoteForm';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Mountain, Flame, Sparkles } from 'lucide-react';
 import { getAssetUrl } from '@/lib/basePath';
 import { getDictionary } from '@/dictionaries/getDictionary';
 import { Locale } from '@/dictionaries/types';
@@ -169,12 +169,184 @@ export default async function LocalizedHomePage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Core Editorial Section: Focus on Arabica & Robusta (What kind of Arabica, What kind of Robusta without dry specs) */}
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[10px] uppercase tracking-[0.28em] text-[#C7A05A] font-semibold block mb-2">
+              {dict.home.varieties.badge}
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#20150F] font-normal tracking-tight mb-4">
+              {dict.home.varieties.title}
+            </h2>
+            <p className="text-sm sm:text-base text-stone-600 font-light leading-relaxed">
+              {dict.home.varieties.subtitle}
+            </p>
+          </div>
+
+          {/* Two Pillars Grid: Highland Arabica vs Fine Robusta */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+            {/* Pillar 1: Highland Cau Dat Arabica */}
+            <div className="bg-white border border-[#3A2418]/10 p-8 sm:p-12 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:border-[#C7A05A]/50 transition-all duration-300">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-[#C7A05A]/5 rounded-bl-full pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-2">
+                    <Mountain className="w-4 h-4 text-[#98733C]" />
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#98733C] font-semibold">
+                      {dict.home.varieties.arabica.badge}
+                    </span>
+                  </div>
+                  <span className="text-xs font-serif italic text-stone-400">
+                    {dict.home.varieties.arabica.origin}
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-3xl text-[#20150F] font-normal mb-4">
+                  {dict.home.varieties.arabica.title}
+                </h3>
+
+                <p className="text-stone-600 text-sm sm:text-base font-light leading-relaxed mb-6">
+                  {dict.home.varieties.arabica.desc}
+                </p>
+
+                {/* Sensory Notes */}
+                <div className="mb-6 pt-4 border-t border-[#3A2418]/10">
+                  <span className="text-[10px] uppercase tracking-widest text-stone-400 font-semibold block mb-3">
+                    {dict.home.varieties.arabica.notesTitle}
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {dict.home.varieties.arabica.notes.map((note) => (
+                      <span
+                        key={note}
+                        className="px-3 py-1.5 bg-[#FAF7F2] border border-[#3A2418]/10 text-[#20150F] text-xs font-serif italic"
+                      >
+                        {note}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-[#3A2418]/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <span className="text-xs text-[#98733C] font-medium tracking-wide">
+                  {dict.home.varieties.arabica.character}
+                </span>
+                <Link
+                  href={`/${validLang}/coffee`}
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-[#20150F] hover:text-[#C7A05A] transition-colors"
+                >
+                  {dict.home.varieties.arabica.link} →
+                </Link>
+              </div>
+            </div>
+
+            {/* Pillar 2: Fine Robusta Buon Ma Thuot */}
+            <div className="bg-[#20150F] text-[#F4EFE7] border border-[#3A2418] p-8 sm:p-12 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:border-[#C7A05A]/50 transition-all duration-300">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-[#C7A05A]/10 rounded-bl-full pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-2">
+                    <Flame className="w-4 h-4 text-[#E2BA6C]" />
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#E2BA6C] font-semibold">
+                      {dict.home.varieties.robusta.badge}
+                    </span>
+                  </div>
+                  <span className="text-xs font-serif italic text-stone-400">
+                    {dict.home.varieties.robusta.origin}
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal mb-4">
+                  {dict.home.varieties.robusta.title}
+                </h3>
+
+                <p className="text-stone-300 text-sm sm:text-base font-light leading-relaxed mb-6">
+                  {dict.home.varieties.robusta.desc}
+                </p>
+
+                {/* Sensory Notes */}
+                <div className="mb-6 pt-4 border-t border-[#3A2418]/60">
+                  <span className="text-[10px] uppercase tracking-widest text-stone-400 font-semibold block mb-3">
+                    {dict.home.varieties.robusta.notesTitle}
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {dict.home.varieties.robusta.notes.map((note) => (
+                      <span
+                        key={note}
+                        className="px-3 py-1.5 bg-[#180F0B] border border-[#3A2418] text-[#E2BA6C] text-xs font-serif italic"
+                      >
+                        {note}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-[#3A2418]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <span className="text-xs text-[#E2BA6C] font-medium tracking-wide">
+                  {dict.home.varieties.robusta.character}
+                </span>
+                <Link
+                  href={`/${validLang}/coffee`}
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-white hover:text-[#C7A05A] transition-colors"
+                >
+                  {dict.home.varieties.robusta.link} →
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Master Blends Harmony Banner */}
+          <div className="mt-10 bg-white border border-[#3A2418]/10 p-8 sm:p-10 shadow-sm">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-5 space-y-3">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#C7A05A]" />
+                  <span className="text-[10px] uppercase tracking-[0.25em] text-[#C7A05A] font-semibold block">
+                    {dict.home.varieties.blendHarmony.badge}
+                  </span>
+                </div>
+                <h3 className="font-serif text-2xl sm:text-3xl text-[#20150F] font-normal leading-snug">
+                  {dict.home.varieties.blendHarmony.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+                  {dict.home.varieties.blendHarmony.desc}
+                </p>
+                <div className="pt-2">
+                  <Link
+                    href={`/${validLang}/coffee`}
+                    className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#20150F] hover:bg-[#3A2418] text-[#F4EFE7] text-xs uppercase tracking-widest font-semibold transition-all"
+                  >
+                    {dict.home.varieties.blendHarmony.link} →
+                  </Link>
+                </div>
+              </div>
+
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {dict.home.varieties.blendHarmony.items.map((item) => (
+                  <div key={item.ratio} className="p-4 bg-[#FAF7F2] border border-[#3A2418]/10">
+                    <span className="font-serif text-lg font-bold text-[#98733C] block mb-1">
+                      {item.ratio}
+                    </span>
+                    <h4 className="font-serif text-sm text-[#20150F] font-medium mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-[11px] text-stone-600 font-light leading-relaxed">
+                      {item.note}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Categories 3-Cards Section */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link
               href={`/${validLang}/green-coffee`}
-              className="group bg-white border border-[#3A2418]/10 p-8 shadow-lg hover:border-[#C7A05A] transition-all"
+              className="group bg-white border border-[#3A2418]/10 p-8 shadow-sm hover:border-[#C7A05A] transition-all"
             >
               <h3 className="font-serif text-2xl text-[#20150F] mb-3 group-hover:text-[#98733C] transition-colors">
                 {dict.home.categories.greenTitle}
@@ -189,7 +361,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
 
             <Link
               href={`/${validLang}/coffee`}
-              className="group bg-white border border-[#3A2418]/10 p-8 shadow-lg hover:border-[#C7A05A] transition-all"
+              className="group bg-white border border-[#3A2418]/10 p-8 shadow-sm hover:border-[#C7A05A] transition-all"
             >
               <h3 className="font-serif text-2xl text-[#20150F] mb-3 group-hover:text-[#98733C] transition-colors">
                 {dict.home.categories.blendsTitle}
@@ -204,7 +376,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
 
             <Link
               href={`/${validLang}/private-label`}
-              className="group bg-white border border-[#3A2418]/10 p-8 shadow-lg hover:border-[#C7A05A] transition-all"
+              className="group bg-white border border-[#3A2418]/10 p-8 shadow-sm hover:border-[#C7A05A] transition-all"
             >
               <h3 className="font-serif text-2xl text-[#20150F] mb-3 group-hover:text-[#98733C] transition-colors">
                 {dict.home.categories.oemTitle}
